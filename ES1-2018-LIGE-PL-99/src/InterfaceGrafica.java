@@ -80,7 +80,7 @@ public class InterfaceGrafica extends JFrame {
 		lblNewLabel_2.setIcon(new ImageIcon(InterfaceGrafica.class.getResource("/images/1413073433_images-2-.jpg")));
 		lblNewLabel_2.setLabelFor(lblNewLabel_2);
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(12, 68, 136, 134);
+		lblNewLabel_2.setBounds(12, 83, 136, 134);
 		contentPane.add(lblNewLabel_2);
 	}
 }
