@@ -1,5 +1,8 @@
+
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
+
 
 
 import javax.swing.JFrame;
@@ -20,9 +23,7 @@ public class InterfaceGrafica extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -86,3 +87,6 @@ public class InterfaceGrafica extends JFrame {
 	}
 
 }
+
+
+
