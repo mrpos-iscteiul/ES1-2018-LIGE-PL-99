@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+<<<<<<< HEAD
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -83,4 +84,5 @@ public class InterfaceGrafica extends JFrame {
 		lblNewLabel_2.setBounds(12, 68, 136, 134);
 		contentPane.add(lblNewLabel_2);
 	}
+
 }
