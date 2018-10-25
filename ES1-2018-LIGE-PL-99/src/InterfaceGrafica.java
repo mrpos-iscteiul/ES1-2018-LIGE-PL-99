@@ -74,7 +74,7 @@ public class InterfaceGrafica extends JFrame {
 		lblNewLabel.setLabelFor(lblNewLabel);
 		lblNewLabel.setBounds(53, 90, 82, 26);
 		panel.add(lblNewLabel);
-		
+		///////////////////////
 		JLabel lblNewLabel_1 = new JLabel("Password");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(53, 160, 88, 26);
