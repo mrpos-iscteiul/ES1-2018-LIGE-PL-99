@@ -1,4 +1,3 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -12,9 +11,14 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
+import javax.swing.JButton;
 
 public class InterfaceGrafica extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -75,6 +79,12 @@ public class InterfaceGrafica extends JFrame {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(53, 160, 88, 26);
 		panel.add(lblNewLabel_1);
+		
+		JButton btnNewButton = new JButton("Sign in");
+		btnNewButton.setForeground(SystemColor.textHighlight);
+		btnNewButton.setVerticalAlignment(SwingConstants.TOP);
+		btnNewButton.setBounds(117, 223, 97, 25);
+		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(InterfaceGrafica.class.getResource("/image/1413073433_images-2-.jpg")));
