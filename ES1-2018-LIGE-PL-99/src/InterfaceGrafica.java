@@ -16,14 +16,24 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
-
+/**
+ * Esta classe serve de login para verificar as credenciais do utilizador e dar a acesso à aplicação BDA.
+ * @author joao alves
+ * @since 2018-10-16
+ *
+ */
 public class InterfaceGrafica extends JFrame {
-
+	/**
+	 * declaração de um Jpanel e dois JTextfield.
+	 */
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
 
-	
+	/**
+	 * O main inicia a aplicação.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -38,7 +48,7 @@ public class InterfaceGrafica extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * cria a janela.
 	 */
 	public InterfaceGrafica() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -9,12 +9,19 @@ import java.awt.FlowLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 
+/**
+ * Interface que será utilizada para a representação das notificações.
+ * 
+ * @author joao Alves
+ * @since 2018-10-15 
+ *
+ */
 public class interface_apl extends JFrame {
 
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
+	 * Inicia a aplicação.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -24,15 +31,17 @@ public class interface_apl extends JFrame {
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
-					//////////////
+					
 				}
 			}
 		});
 	}
 
 	/**
-	 * Create the frame.
+	 * cria a frame através de Jpanels, e labels para as notificações.
+	 * foram criadas checkBox's para o facebook, email e twitter
 	 */
+	
 	public interface_apl() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 583, 428);
