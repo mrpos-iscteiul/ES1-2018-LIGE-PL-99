@@ -38,7 +38,7 @@ public class Fmain {
 			
 		}
 		System.out.println("Nº de resultados: " + countP);
-		System.out.println("oa");
+		System.out.println("o a");
 		
 
 	}
