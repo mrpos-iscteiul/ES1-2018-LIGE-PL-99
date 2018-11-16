@@ -94,8 +94,4 @@ public class InterfaceGrafica extends JFrame {
 		lblNewLabel_2.setBounds(12, 83, 136, 134);
 		contentPane.add(lblNewLabel_2);
 	}
-=======
-public class InterfaceGrafica {
-	
->>>>>>> branch 'master' of https://github.com/mrpos-iscteiul/ES1-2018-LIGE-PL-99.git
-}
+
