@@ -40,7 +40,6 @@ public class Fmain {
 		System.out.println("Nº de resultados: " + countP);
 //<<<<<<< DIOGO
 		System.out.println("adeus");
-=======
 	
 		
 //>>>>>>> master
