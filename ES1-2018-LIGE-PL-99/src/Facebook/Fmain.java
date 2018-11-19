@@ -24,7 +24,7 @@ public class Fmain {
 		User me = fbclient.fetchObject("me", User.class);
 		
 		/**
-		 * Acesso e impressão do feed do utilizador e nr de resultados
+		 * Acesso e impressÃ£o do feed do utilizador e nr de resultados
 		 */
 		
 		Connection<Post> result = fbclient.fetchConnection("me/feed", Post.class);
@@ -37,10 +37,14 @@ public class Fmain {
 			}
 			
 		}
-		System.out.println("Nº de resultados: " + countP);
+		System.out.println("NÂº de resultados: " + countP);
+//<<<<<<< DIOGO
 		System.out.println("adeus");
+=======
+	
 		
-
+//>>>>>>> master
+		
 	}
 
 }

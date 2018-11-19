@@ -9,6 +9,7 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class Twittermain {
 
+//<<<<<<< DIOGO
 	public static void main(String[] args) throws TwitterException {
 		
 		ConfigurationBuilder cf = new ConfigurationBuilder();
@@ -29,6 +30,10 @@ public class Twittermain {
 		}
 		
 		
+=======
+	public static void main(String[] args) {
+		System.out.println("twitter");
+//>>>>>>> master
 
 	}
 
