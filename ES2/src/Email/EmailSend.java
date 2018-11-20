@@ -2,6 +2,7 @@
 package Email;
 
 
+import java.security.Security;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -27,9 +28,15 @@ public class EmailSend {
             props.put("mail.smtp.port", "587");
             props.put("mail.smtp.auth", "true");
             props.put("mail.smtp.starttls.required", "true");
+            props.setProperty("mail.smtp.ssl.trust", "smtpserver");
+            
 
-//            java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-            Session mailSession = Session.getDefaultInstance(props, null);
+            Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+            Session mailSession = Session.getInstance(props, new javax.mail.Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(user, pass);
+                }
+            });
             mailSession.setDebug(sessionDebug);
             Message msg = new MimeMessage(mailSession);
             msg.setFrom(new InternetAddress(from));

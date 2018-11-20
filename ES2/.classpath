@@ -9,14 +9,6 @@
 	<classpathentry kind="lib" path="C:/Users/dmbju/Downloads/javax.mail-1.6.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/dmbju/Downloads/activation.jar"/>
 	<classpathentry kind="lib" path="C:/Users/dmbju/Downloads/restfb-2.11.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Miguel Penedo/.m2/repository/com/restfb/restfb/2.10.0/restfb-2.10.0.jar" sourcepath="C:/Users/Miguel Penedo/.m2/repository/com/restfb/restfb/2.10.0/restfb-2.10.0-sources.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="com.restfb"/>
-			<attribute name="maven.artifactId" value="restfb"/>
-			<attribute name="maven.version" value="2.10.0"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/dmbju/OneDrive/Documentos/com.sun.net.ssl.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
