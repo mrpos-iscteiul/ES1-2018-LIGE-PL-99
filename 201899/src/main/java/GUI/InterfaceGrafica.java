@@ -59,8 +59,14 @@ public class InterfaceGrafica extends JFrame {
 		panel.setLayout(null);
 		
 		textField = new JTextField();
+		textField.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		textField.setForeground(Color.LIGHT_GRAY);
-		textField.setBounds(147, 87, 147, 32);
+		textField.setBounds(147, 87, 147, 26);
 		panel.add(textField);
 		textField.setColumns(10);
 		
@@ -77,6 +83,12 @@ public class InterfaceGrafica extends JFrame {
 		panel.add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("Sign in");
+		btnNewButton.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton.setForeground(SystemColor.textHighlight);
 		btnNewButton.setVerticalAlignment(SwingConstants.TOP);
 		btnNewButton.setBounds(117, 223, 97, 25);
@@ -84,10 +96,12 @@ public class InterfaceGrafica extends JFrame {
 		
 		password = new JPasswordField();
 		password.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent arg0) {
+				
 			}
 		});
-		password.setBounds(147, 163, 147, 23);
+		password.setBounds(147, 160, 147, 26);
 		panel.add(password);
 		
 		JLabel lblNewLabel_2 = new JLabel("");

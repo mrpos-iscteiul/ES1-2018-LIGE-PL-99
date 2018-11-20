@@ -23,6 +23,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/dmbju/Downloads/javax.mail-1.6.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/dmbju/Downloads/restfb-2.11.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/dmbju/Downloads/activation.jar"/>
@@ -32,5 +33,14 @@
 	<classpathentry kind="lib" path="C:/Users/dmbju/workspace/twitter4j/lib/twitter4j-stream-4.0.7.jar"/>
 	<classpathentry kind="lib" path="C:/Users/dmbju/OneDrive/Documentos/com.sun.net.ssl.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+=======
+	<classpathentry kind="lib" path="C:/Users/joaom/git/ES1-2018-LIGE-PL-99/201899/activation.jar"/>
+	<classpathentry kind="lib" path="C:/Users/joaom/git/ES1-2018-LIGE-PL-99/201899/com.sun.net.ssl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/joaom/git/ES1-2018-LIGE-PL-99/201899/javax.mail-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/joaom/git/ES1-2018-LIGE-PL-99/201899/twitter4j-async-4.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/joaom/git/ES1-2018-LIGE-PL-99/201899/twitter4j-core-4.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/joaom/git/ES1-2018-LIGE-PL-99/201899/twitter4j-examples-4.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/joaom/git/ES1-2018-LIGE-PL-99/201899/twitter4j-stream-4.0.7.jar"/>
+>>>>>>> branch 'master' of https://github.com/mrpos-iscteiul/ES1-2018-LIGE-PL-99
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
