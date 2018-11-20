@@ -60,7 +60,7 @@ public class InterfaceGrafica extends JFrame {
 		
 		textField = new JTextField();
 		textField.setForeground(Color.LIGHT_GRAY);
-		textField.setBounds(147, 87, 147, 32);
+		textField.setBounds(147, 87, 147, 26);
 		panel.add(textField);
 		textField.setColumns(10);
 		
@@ -87,7 +87,7 @@ public class InterfaceGrafica extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		password.setBounds(147, 163, 147, 23);
+		password.setBounds(147, 160, 147, 26);
 		panel.add(password);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
