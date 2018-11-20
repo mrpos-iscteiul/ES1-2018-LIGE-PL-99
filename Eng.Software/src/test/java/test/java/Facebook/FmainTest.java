@@ -4,11 +4,16 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import main.java.Facebook.Fmain;
+
 public class FmainTest {
+	
+	Fmain fm = new Fmain();
 
 	@Test
 	public void testFeed() {
-		fail("Not yet implemented");
+		fm.feed();
+		assertEquals(fm.getC(), 215);
 	}
 
 }

@@ -1,5 +1,6 @@
 package main.java.Twitter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import twitter4j.Status;
@@ -8,9 +9,25 @@ import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
 public class Twittermain {
-	private List<Status> Estado;
+	
+	 ArrayList<Tweet> tweets = new ArrayList<Tweet>();
+	
+	private class Tweet{
+		String user;
+		String text;
+		public Tweet(String user, String text) {
+			this.user=user;
+			this.text=text;
+		}
+	}
+	
+	
+	public List getList() {
+		return tweets;
+	}
+	
 
-	public static void timeline() throws TwitterException {
+	public void timeline() throws TwitterException {
 		ConfigurationBuilder cf = new ConfigurationBuilder();
 
 		cf.setDebugEnabled(true)
@@ -22,16 +39,20 @@ public class Twittermain {
 		TwitterFactory tf = new TwitterFactory(cf.build());
 		twitter4j.Twitter twitter=tf.getInstance();
 
-		 Estado= twitter.getHomeTimeline();
-
+		List<Status> Estado=twitter.getHomeTimeline();
 		for(Status s : Estado) {
-			System.out.println(s.getUser().getName()+"  "+s.getText());
+			
+			Tweet t = new Tweet(s.getUser().getName(), s.getText());
+			tweets.add(t);
+			System.out.println(t.user+"    "+t.text);
 		}
 	}
 
 	public static void main(String[] args) throws TwitterException {
-		Twittermain.timeline();
-		
+		Twittermain t = new Twittermain();
+		t.timeline();
+		System.out.println(t.tweets.isEmpty());
+	
 
 	}
 

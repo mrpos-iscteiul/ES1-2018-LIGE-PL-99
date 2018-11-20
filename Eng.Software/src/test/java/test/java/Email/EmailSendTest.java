@@ -4,11 +4,16 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class EmailSendTest {
+import main.java.Email.EmailSend;
 
+public class EmailSendTest {
+	
+	EmailSend es= new EmailSend();
+	
 	@Test
 	public void testSend() {
-		fail("Not yet implemented");
+		es.send();
+		assertFalse(es.getEnvios()==0);
 	}
 
 }

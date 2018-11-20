@@ -1,5 +1,6 @@
 package main.java.Email;
 
+import java.util.ArrayList;
 import java.util.Properties;
 
 import javax.mail.Folder;
@@ -10,8 +11,19 @@ import javax.mail.Session;
 import javax.mail.Store;
 
 public class SeeEmails {
+	
+	
+	 Message[] messages;
+	 static String host = "pop.gmail.com";// change accordingly
+     static String mailStoreType = "pop3";
+     static String username = "diogombj@gmail.com";// change accordingly
+     static String password = "sednavuj";// change accordingly
+	
+	public Message[] getMs() {
+		return messages;
+	}
 
-   public static void check(String host, String storeType, String user,
+   public void check(String host, String storeType, String user,
       String password) 
    {
       try {
@@ -34,7 +46,7 @@ public class SeeEmails {
       emailFolder.open(Folder.READ_ONLY);
 
       // retrieve the messages from the folder in an array and print it
-      Message[] messages = emailFolder.getMessages();
+      messages = emailFolder.getMessages();
       System.out.println("messages.length---" + messages.length);
 
       for (int i = 0, n = messages.length; i < n; i++) {
@@ -44,12 +56,14 @@ public class SeeEmails {
          System.out.println("Subject: " + message.getSubject());
          System.out.println("From: " + message.getFrom()[0]);
          System.out.println("Text: " + message.getContent().toString());
-
+         
       }
+    
 
       //close the store and folder objects
       emailFolder.close(false);
       store.close();
+      
 
       } catch (NoSuchProviderException e) {
          e.printStackTrace();
@@ -61,14 +75,10 @@ public class SeeEmails {
    }
 
    public static void main(String[] args) {
-
-      String host = "pop.gmail.com";// change accordingly
-      String mailStoreType = "pop3";
-      String username = "diogombj@gmail.com";// change accordingly
-      String password = "sednavuj";// change accordingly
-
-      check(host, mailStoreType, username, password);
-      //fff
+	  SeeEmails se = new SeeEmails();
+      se.check(host, mailStoreType, username, password);
+      
    }
+   
 
 }

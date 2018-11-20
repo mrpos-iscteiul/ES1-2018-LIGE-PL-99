@@ -9,8 +9,14 @@ import javax.mail.internet.*;
 import javax.mail.internet.MimeMessage;
 
 public class EmailSend {
+	
+	int envios=0;
+	
+	public int getEnvios() {
+		return envios;
+	}
 
-	public static void send() {
+	public  void send() {
 		try{
 			String host ="smtp.gmail.com" ;
 			final String user = "diogombj@gmail.com";
@@ -50,6 +56,7 @@ public class EmailSend {
 			transport.sendMessage(msg, msg.getAllRecipients());
 			transport.close();
 			System.out.println("message send successfully");
+			envios++;
 		}catch(Exception ex)
 		{
 			System.out.println(ex);
@@ -60,7 +67,9 @@ public class EmailSend {
 	 * @param args
 	 */
 	public static void main(String args[]){
-		EmailSend.send();
+		EmailSend es = new EmailSend();
+		es.send();
+		System.out.println(es.envios);
 
 	}
 }
