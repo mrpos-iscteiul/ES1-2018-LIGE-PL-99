@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
-import javax.swing.DropMode;
 import javax.swing.JLabel;
 import java.awt.Color;
 import javax.swing.SwingConstants;
@@ -14,16 +13,17 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class InterfaceGrafica extends JFrame {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
+	private JPasswordField password;
 
 	/**
 	 * Launch the application
@@ -64,12 +64,6 @@ public class InterfaceGrafica extends JFrame {
 		panel.add(textField);
 		textField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setForeground(Color.LIGHT_GRAY);
-		textField_1.setBounds(147, 160, 147, 32);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
-		
 		JLabel lblNewLabel = new JLabel("User");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel.setToolTipText("");
@@ -87,6 +81,14 @@ public class InterfaceGrafica extends JFrame {
 		btnNewButton.setVerticalAlignment(SwingConstants.TOP);
 		btnNewButton.setBounds(117, 223, 97, 25);
 		panel.add(btnNewButton);
+		
+		password = new JPasswordField();
+		password.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		password.setBounds(147, 163, 147, 23);
+		panel.add(password);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(InterfaceGrafica.class.getResource("1413073433_images-2-.jpg")));
