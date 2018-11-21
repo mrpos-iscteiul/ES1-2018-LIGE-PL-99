@@ -70,6 +70,7 @@ public class EmailSend {
 		EmailSend es = new EmailSend();
 		es.send();
 		System.out.println(es.envios);
+		System.out.println("");
 
 	}
 }
