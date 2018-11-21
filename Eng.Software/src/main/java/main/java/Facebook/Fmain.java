@@ -35,9 +35,9 @@ public class Fmain {
 		System.out.println("Nº de resultados: " + countP);
 	}
 
-	public static void main(String[] args) {
-		Fmain fm = new Fmain();
-		fm.feed();
+//	public static void main(String[] args) {
+//		Fmain fm = new Fmain();
+//		fm.feed();
 		
 		/**
 		 * Acesso ao utilizador
@@ -54,6 +54,6 @@ public class Fmain {
 	
 		
 
-	}
+	
 
 }

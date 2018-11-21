@@ -66,10 +66,10 @@ public class EmailSend {
 	/**
 	 * @param args
 	 */
-	public static void main(String args[]){
-		EmailSend es = new EmailSend();
-		es.send();
-		System.out.println(es.envios);
-
-	}
+//	public static void main(String args[]){
+//		EmailSend es = new EmailSend();
+//		es.send();
+//		System.out.println(es.envios);
+//
+//	}
 }

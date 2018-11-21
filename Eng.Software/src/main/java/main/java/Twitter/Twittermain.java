@@ -48,12 +48,12 @@ public class Twittermain {
 		}
 	}
 
-	public static void main(String[] args) throws TwitterException {
-		Twittermain t = new Twittermain();
-		t.timeline();
-		System.out.println(t.tweets.isEmpty());
-	
-
-	}
+//	public static void main(String[] args) throws TwitterException {
+//		Twittermain t = new Twittermain();
+//		t.timeline();
+//		System.out.println(t.tweets.isEmpty());
+//	
+//
+//	}
 
 }

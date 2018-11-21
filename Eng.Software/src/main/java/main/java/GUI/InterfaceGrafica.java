@@ -32,7 +32,7 @@ public class InterfaceGrafica extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					InterfaceGrafica frame = new InterfaceGrafica();
+					InterfaceGrafica frame  = new InterfaceGrafica();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

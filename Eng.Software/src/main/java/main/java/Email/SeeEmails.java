@@ -74,11 +74,11 @@ public class SeeEmails {
       }
    }
 
-   public static void main(String[] args) {
-	  SeeEmails se = new SeeEmails();
-      se.check(host, mailStoreType, username, password);
-      
-   }
-   
+//   public static void main(String[] args) {
+//	  SeeEmails se = new SeeEmails();
+//      se.check(host, mailStoreType, username, password);
+//      
+//   }
+//   
 
 }
