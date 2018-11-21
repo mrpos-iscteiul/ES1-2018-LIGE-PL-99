@@ -80,6 +80,7 @@ public class EmailSend {
 		System.out.println(" ");
 		
 		System.out.println(es.envios);
+		System.out.println("");
 
 	}
 >>>>>>> branch 'master' of https://github.com/mrpos-iscteiul/ES1-2018-LIGE-PL-99
