@@ -34,6 +34,7 @@
 	<classpathentry kind="lib" path="C:/Users/Miguel Penedo/git/Repositorio/201899/twitter4j-stream-4.0.7.jar"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/dmbju/OneDrive/Documentos/com.sun.net.ssl.jar"/>
 	<classpathentry kind="lib" path="C:/Users/dmbju/Downloads/activation.jar"/>
 	<classpathentry kind="lib" path="C:/Users/dmbju/Downloads/javax.mail-1.6.2.jar"/>
@@ -47,6 +48,19 @@
 >>>>>>> branch 'master' of https://github.com/mrpos-iscteiul/ES1-2018-LIGE-PL-99
 =======
 	<classpathentry kind="lib" path="C:/Users/Miguel Penedo/Downloads/restfb-2.11.0.zip"/>
+>>>>>>> branch 'master' of https://github.com/mrpos-iscteiul/ES1-2018-LIGE-PL-99
+=======
+	<classpathentry kind="lib" path="C:/Users/Miguel Penedo/Downloads/restfb-2.11.0.zip"/>
+	<classpathentry kind="lib" path="com.sun.net.ssl.jar"/>
+	<classpathentry kind="lib" path="restfb-2.11.0.zip"/>
+	<classpathentry kind="lib" path="C:/Users/dmbju/workspace/twitter4j/lib/twitter4j-async-4.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dmbju/workspace/twitter4j/lib/twitter4j-core-4.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dmbju/workspace/twitter4j/lib/twitter4j-examples-4.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dmbju/workspace/twitter4j/lib/twitter4j-stream-4.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dmbju/Downloads/activation.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dmbju/Downloads/javax.mail-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dmbju/Downloads/restfb-2.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dmbju/OneDrive/Documentos/com.sun.net.ssl.jar"/>
 >>>>>>> branch 'master' of https://github.com/mrpos-iscteiul/ES1-2018-LIGE-PL-99
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

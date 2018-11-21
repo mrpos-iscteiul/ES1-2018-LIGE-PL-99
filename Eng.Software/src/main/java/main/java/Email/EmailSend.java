@@ -66,10 +66,21 @@ public class EmailSend {
 	/**
 	 * @param args
 	 */
+<<<<<<< HEAD
 //	public static void main(String args[]){
 //		EmailSend es = new EmailSend();
 //		es.send();
 //		System.out.println(es.envios);
 //
 //	}
+=======
+	public static void main(String args[]){
+		EmailSend es = new EmailSend();
+		es.send();
+		System.out.println(" ");
+		
+		System.out.println(es.envios);
+
+	}
+>>>>>>> branch 'master' of https://github.com/mrpos-iscteiul/ES1-2018-LIGE-PL-99
 }
