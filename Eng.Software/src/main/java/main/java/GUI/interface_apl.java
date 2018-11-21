@@ -26,7 +26,6 @@ public class interface_apl extends JFrame {
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
-					//////////////
 				}
 			}
 		});
@@ -76,5 +75,6 @@ public class interface_apl extends JFrame {
 		JCheckBox chckbxEmail = new JCheckBox("email");
 		chckbxEmail.setBounds(466, 231, 113, 25);
 		contentPane.add(chckbxEmail);
+	
 	}
 }
