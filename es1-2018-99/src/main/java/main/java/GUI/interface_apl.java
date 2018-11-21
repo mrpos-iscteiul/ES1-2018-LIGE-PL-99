@@ -26,7 +26,7 @@ public class interface_apl extends JFrame {
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
-					//////////////
+					///////////
 				}
 			}
 		});
