@@ -9,6 +9,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
+import com.restfb.types.Post;
+
 import main.java.Email.SeeEmails;
 import main.java.Facebook.Fmain;
 import main.java.Twitter.Twittermain;
@@ -134,6 +136,23 @@ public class interface_apl extends JFrame {
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}									
+				}
+				
+				feed.setModel(ecra);
+			}
+
+
+
+		});
+		
+		chckbxFacebook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(chckbxFacebook.isSelected()) {
+					f.feed();
+					for(Post p : (ArrayList<Post>) f.getP()) {
+						String s = "facebook ----> Post: " + p.getMessage()+"ID:  "+p.getId();
+						ecra.addElement(s);
+					}
 				}
 				
 				feed.setModel(ecra);
