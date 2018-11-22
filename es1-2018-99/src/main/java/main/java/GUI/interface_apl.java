@@ -20,8 +20,11 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
 import javax.swing.DefaultListModel;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -74,11 +77,11 @@ public class interface_apl extends JFrame {
 		//		panel.setBounds(0, 92, 458, 289);
 		panel.setLayout(new GridLayout(3, 1));
 
-		JCheckBox chckbxFacebook = new JCheckBox("Facebook");
+		final JCheckBox chckbxFacebook = new JCheckBox("Facebook");
 		chckbxFacebook.setBounds(462, 112, 103, 25);
 		final JCheckBox chckbxTwitter = new JCheckBox("Twitter");
 		chckbxTwitter.setBounds(466, 170, 99, 25);
-		JCheckBox chckbxEmail = new JCheckBox("email");
+		final JCheckBox chckbxEmail = new JCheckBox("email");
 		chckbxEmail.setBounds(466, 231, 113, 25);
 
 		panel.add(chckbxFacebook);
@@ -99,7 +102,7 @@ public class interface_apl extends JFrame {
 					} catch (TwitterException e1) {
 						e1.printStackTrace();
 					}
-					
+
 					for (Tweet s : (ArrayList<Tweet>) t.getList()) {
 						String n = "Tweet ---> "+s;
 						ecra.addElement(n);
@@ -108,7 +111,36 @@ public class interface_apl extends JFrame {
 				}
 			}
 
-			
+
+		});
+
+		chckbxEmail.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(chckbxEmail.isSelected()) {
+					try {
+						se.check("pop.gmail.com", "pop3", "diogombj@gmail.com", "sednavuj");
+						
+						for (Message m : se.getMs()) {
+						
+							String subj = "Subject: "+m.getSubject();
+							String from = "From:  "+m.getFrom();
+							String text = "Text:  "+m.getContent().toString();
+							String n = "Email ---> "+subj+"  "+from+"  "+text;
+							ecra.addElement(n);
+						} 
+//						se.close();
+					}catch (MessagingException e1) {				
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}									
+				}
+				
+				feed.setModel(ecra);
+			}
+
+
+
 		});
 
 
