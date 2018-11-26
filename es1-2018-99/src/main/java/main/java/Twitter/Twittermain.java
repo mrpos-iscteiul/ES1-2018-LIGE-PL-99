@@ -12,12 +12,16 @@ public class Twittermain {
 	
 	 ArrayList<Tweet> tweets = new ArrayList<Tweet>();
 	
-	private class Tweet{
+	public class Tweet{
 		String user;
 		String text;
 		public Tweet(String user, String text) {
 			this.user=user;
 			this.text=text;
+		}
+		
+		public String toString() {
+			return user+":  "+text;
 		}
 	}
 	
@@ -44,7 +48,7 @@ public class Twittermain {
 			
 			Tweet t = new Tweet(s.getUser().getName(), s.getText());
 			tweets.add(t);
-			System.out.println(t.user+"    "+t.text);
+			System.out.println(t);
 		}
 	}
 

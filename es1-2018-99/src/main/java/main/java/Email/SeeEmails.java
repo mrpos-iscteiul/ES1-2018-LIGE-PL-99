@@ -18,9 +18,15 @@ public class SeeEmails {
      static String mailStoreType = "pop3";
      static String username = "diogombj@gmail.com";// change accordingly
      static String password = "sednavuj";// change accordingly
+     Store store;
+     Folder emailFolder;
 	
 	public Message[] getMs() {
 		return messages;
+	}
+	public void close() throws MessagingException {
+		emailFolder.close(false);
+		store.close();
 	}
 
    public void check(String host, String storeType, String user,
@@ -42,7 +48,7 @@ public class SeeEmails {
       store.connect(host, user, password);
 
       //create the folder object and open it
-      Folder emailFolder = store.getFolder("INBOX");
+      emailFolder = store.getFolder("INBOX");
       emailFolder.open(Folder.READ_ONLY);
 
       // retrieve the messages from the folder in an array and print it
@@ -51,19 +57,19 @@ public class SeeEmails {
 
       for (int i = 0, n = messages.length; i < n; i++) {
          Message message = messages[i];
-         System.out.println("---------------------------------");
-         System.out.println("Email Number " + (i + 1));
-         System.out.println("Subject: " + message.getSubject());
-         System.out.println("From: " + message.getFrom()[0]);
-         System.out.println("Text: " + message.getContent().toString());
+//         System.out.println("---------------------------------");
+//         System.out.println("Email Number " + (i + 1));
+//         System.out.println("Subject: " + message.getSubject());
+//         System.out.println("From: " + message.getFrom()[0]);
+//         System.out.println("Text: " + message.getContent().toString());
          
       }
     
 
       //close the store and folder objects
-      emailFolder.close(false);
-      store.close();
-      
+//      emailFolder.close(false);
+//      store.close();
+//      
 
       } catch (NoSuchProviderException e) {
          e.printStackTrace();
@@ -74,11 +80,11 @@ public class SeeEmails {
       }
    }
 
-   public static void main(String[] args) {
-	  SeeEmails se = new SeeEmails();
-      se.check(host, mailStoreType, username, password);
-      
-   }
-   
+//   public static void main(String[] args) {
+//	  SeeEmails se = new SeeEmails();
+//      se.check(host, mailStoreType, username, password);
+//      
+//   }
+//   
 
 }

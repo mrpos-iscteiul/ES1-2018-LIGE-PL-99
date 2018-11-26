@@ -1,5 +1,6 @@
 package main.java.Facebook;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.restfb.Connection;
@@ -11,9 +12,14 @@ import com.restfb.types.User;
 public class Fmain {
 	
 	int countP=0;
+	private ArrayList<Post> posts = new ArrayList<Post>();
 	
 	public int getC() {
 		return countP;
+	}
+	
+	public ArrayList getP() {
+		return posts;
 	}
 	
 	public void feed() {
@@ -26,6 +32,7 @@ public class Fmain {
 		
 		for(List<Post> page : result) {
 			for(Post aPost : page){
+				posts.add(aPost);
 				System.out.println(aPost.getMessage());
 				System.out.println("Id: "+"fb.com/"+aPost.getId());
 				countP++;
@@ -35,25 +42,25 @@ public class Fmain {
 		System.out.println("Nº de resultados: " + countP);
 	}
 
-	public static void main(String[] args) {
-		Fmain fm = new Fmain();
-		fm.feed();
-		
-		/**
-		 * Acesso ao utilizador
-		 */
-		
-		
-		
-		/**
-		 * Acesso e impressão do feed do utilizador e nr de resultados
-		 */
-		
-		
-
-	
-		
-
-	}
+//	public static void main(String[] args) {
+//		Fmain fm = new Fmain();
+//		fm.feed();
+//		
+//		/**
+//		 * Acesso ao utilizador
+//		 */
+//		
+//		
+//		
+//		/**
+//		 * Acesso e impressão do feed do utilizador e nr de resultados
+//		 */
+//		
+//		
+//
+//	
+//		
+//
+//	}
 
 }
