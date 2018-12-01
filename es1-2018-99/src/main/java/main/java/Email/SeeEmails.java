@@ -57,19 +57,19 @@ public class SeeEmails {
 
       for (int i = 0, n = messages.length; i < n; i++) {
          Message message = messages[i];
-//         System.out.println("---------------------------------");
-//         System.out.println("Email Number " + (i + 1));
-//         System.out.println("Subject: " + message.getSubject());
-//         System.out.println("From: " + message.getFrom()[0]);
-//         System.out.println("Text: " + message.getContent().toString());
+         System.out.println("---------------------------------");
+         System.out.println("Email Number " + (i + 1));
+         System.out.println("Subject: " + message.getSubject());
+         System.out.println("From: " + message.getFrom()[0]);
+         System.out.println("Text: " + message.getContent().toString());
          
       }
     
 
-      //close the store and folder objects
-//      emailFolder.close(false);
-//      store.close();
-//      
+     
+      emailFolder.close(false);
+      store.close();
+      
 
       } catch (NoSuchProviderException e) {
          e.printStackTrace();
@@ -80,11 +80,11 @@ public class SeeEmails {
       }
    }
 
-//   public static void main(String[] args) {
-//	  SeeEmails se = new SeeEmails();
-//      se.check(host, mailStoreType, username, password);
-//      
-//   }
+   public static void main(String[] args) {
+	  SeeEmails se = new SeeEmails();
+      se.check(host, mailStoreType, username, password);
+      
+   }
 //   
 
 }

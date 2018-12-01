@@ -35,7 +35,7 @@ import javax.swing.JList;
 public class interface_apl extends JFrame {
 
 	SeeEmails se=new SeeEmails();
-	Twittermain t = new Twittermain();
+	TwitterGUI t = new TwitterGUI();
 	Fmain f = new Fmain();
 	DefaultListModel<String> ecra = new DefaultListModel();
 	JList<String> feed = new JList<String>(ecra);
@@ -78,7 +78,7 @@ public class interface_apl extends JFrame {
 
 		JPanel panel = new JPanel();
 		//		panel.setBounds(0, 92, 458, 289);
-		panel.setLayout(new GridLayout(3, 1));
+		panel.setLayout(new GridLayout(1,3));
 
 		final JCheckBox chckbxFacebook = new JCheckBox("Facebook");
 		chckbxFacebook.setBounds(462, 112, 103, 25);
@@ -91,8 +91,6 @@ public class interface_apl extends JFrame {
 		panel.add(chckbxTwitter);
 		panel.add(chckbxEmail);
 
-
-
 		JPanel timeline = new JPanel();
 		timeline.add(scroll);
 		JTextArea texto = new JTextArea();
@@ -100,21 +98,10 @@ public class interface_apl extends JFrame {
 		chckbxTwitter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chckbxTwitter.isSelected()) {
-					try {
-						t.timeline();
-					} catch (TwitterException e1) {
-						e1.printStackTrace();
-					}
-
-					for (Tweet s : (ArrayList<Tweet>) t.getList()) {
-						String n = "Tweet ---> "+s;
-						ecra.addElement(n);
-					}
-					feed.setModel(ecra);
+					t.start();
+					t.init();
 				}
 			}
-
-
 		});
 
 		chckbxEmail.addActionListener(new ActionListener() {
@@ -158,18 +145,11 @@ public class interface_apl extends JFrame {
 						ecra.addElement(s);
 					}
 				}
-
 				feed.setModel(ecra);
 			}
-
-
-
 		});
-
-
-
-		contentPane.add(timeline, BorderLayout.CENTER);
-		contentPane.add(panel, BorderLayout.WEST);
+		
+		contentPane.add(panel, BorderLayout.CENTER);
 		//		JLabel lblNewLabel = new JLabel("New label");
 		//		lblNewLabel.setBounds(12, 13, 446, 40);
 		//		panel.add(lblNewLabel);
