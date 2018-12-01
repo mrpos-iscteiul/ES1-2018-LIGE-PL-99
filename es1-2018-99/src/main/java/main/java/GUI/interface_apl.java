@@ -132,8 +132,6 @@ public class interface_apl extends JFrame {
 				feed.setModel(ecra);
 			}
 
-
-
 		});
 
 		chckbxFacebook.addActionListener(new ActionListener() {
