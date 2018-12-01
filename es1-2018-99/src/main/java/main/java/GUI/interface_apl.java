@@ -107,26 +107,7 @@ public class interface_apl extends JFrame {
 		chckbxEmail.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chckbxEmail.isSelected()) {
-					try {
-						se.check("pop.gmail.com", "pop3", "diogombj@gmail.com", "sednavuj");
-
-						for (Message m : se.getMs()) {
-							while(mails<10) {
-								String subj = "Subject: "+m.getSubject();
-								String from = "From:  "+m.getFrom();
-								String text = "Text:  "+m.getContent().toString();
-								String n = "Email ---> "+subj+"  "+from+"  "+text;
-								ecra.addElement(n);
-								mails++;
-							} 
-						}
-						mails=0;
-						//						se.close();
-					}catch (MessagingException e1) {				
-						e1.printStackTrace();
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}									
+														
 				}
 
 				feed.setModel(ecra);

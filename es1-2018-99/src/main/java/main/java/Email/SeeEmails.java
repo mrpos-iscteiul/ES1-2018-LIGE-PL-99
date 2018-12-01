@@ -11,80 +11,104 @@ import javax.mail.Session;
 import javax.mail.Store;
 
 public class SeeEmails {
-	
-	
-	 Message[] messages;
-	 static String host = "pop.gmail.com";// change accordingly
-     static String mailStoreType = "pop3";
-     static String username = "diogombj@gmail.com";// change accordingly
-     static String password = "sednavuj";// change accordingly
-     Store store;
-     Folder emailFolder;
-	
-	public Message[] getMs() {
-		return messages;
+
+
+	Message[] messages;
+	static String host = "pop.gmail.com";// change accordingly
+	static String mailStoreType = "pop3";
+	static String username = "diogombj@gmail.com";// change accordingly
+	static String password = "sednavuj";// change accordingly
+	Store store;
+	Folder emailFolder;
+	ArrayList<Email> mails =  new ArrayList<Email>();
+
+	public ArrayList<Email> getMs() {
+		return mails;
 	}
 	public void close() throws MessagingException {
 		emailFolder.close(false);
 		store.close();
 	}
 
-   public void check(String host, String storeType, String user,
-      String password) 
-   {
-      try {
+	public class Email{
+		String from;
+		String sub;
+		String text;
 
-      //create properties field
-      Properties properties = new Properties();
+		public Email(String from, String sub, String text) {
+			this.from=from;
+			this.sub=sub;
+			this.text=text;
+		}
+		public String toString() {
+			return sub+"  "+from;
+		}
+		
+		public String text() {
+			return this.text;
+		}
 
-      properties.put("mail.pop3.host", host);
-      properties.put("mail.pop3.port", "995");
-      properties.put("mail.pop3.starttls.enable", "true");
-      Session emailSession = Session.getDefaultInstance(properties);
-  
-      //create the POP3 store object and connect with the pop server
-      Store store = emailSession.getStore("pop3s");
+	}
 
-      store.connect(host, user, password);
+	public void check(String host, String storeType, String user,
+			String password) 
+	{
+		try {
 
-      //create the folder object and open it
-      emailFolder = store.getFolder("INBOX");
-      emailFolder.open(Folder.READ_ONLY);
+			//create properties field
+			Properties properties = new Properties();
 
-      // retrieve the messages from the folder in an array and print it
-      messages = emailFolder.getMessages();
-      System.out.println("messages.length---" + messages.length);
+			properties.put("mail.pop3.host", host);
+			properties.put("mail.pop3.port", "995");
+			properties.put("mail.pop3.starttls.enable", "true");
+			Session emailSession = Session.getDefaultInstance(properties);
 
-      for (int i = 0, n = messages.length; i < n; i++) {
-         Message message = messages[i];
-         System.out.println("---------------------------------");
-         System.out.println("Email Number " + (i + 1));
-         System.out.println("Subject: " + message.getSubject());
-         System.out.println("From: " + message.getFrom()[0]);
-         System.out.println("Text: " + message.getContent().toString());
-         
-      }
-    
+			//create the POP3 store object and connect with the pop server
+			Store store = emailSession.getStore("pop3s");
 
-     
-      emailFolder.close(false);
-      store.close();
-      
+			store.connect(host, user, password);
 
-      } catch (NoSuchProviderException e) {
-         e.printStackTrace();
-      } catch (MessagingException e) {
-         e.printStackTrace();
-      } catch (Exception e) {
-         e.printStackTrace();
-      }
-   }
+			//create the folder object and open it
+			emailFolder = store.getFolder("INBOX");
+			emailFolder.open(Folder.READ_ONLY);
 
-   public static void main(String[] args) {
-	  SeeEmails se = new SeeEmails();
-      se.check(host, mailStoreType, username, password);
-      
-   }
-//   
+			// retrieve the messages from the folder in an array and print it
+			messages = emailFolder.getMessages();
+			System.out.println("messages.length---" + messages.length);
+
+			for (int i = 0, n = messages.length; i < n; i++) {
+				Message message = messages[i];
+				System.out.println("---------------------------------");
+				System.out.println("Email Number " + (i + 1));
+				System.out.println("Subject: " + message.getSubject());
+				System.out.println("From: " + message.getFrom()[0]);
+				System.out.println("Text: " + message.getContent().toString());
+
+				String subj = "Subject: "+message.getSubject();
+				String from = "From:  "+message.getFrom();
+				String text = "Text:  "+message.getContent().toString();
+				Email e = new Email (from, subj, text);
+				mails.add(e);
+			}
+
+
+
+
+
+		} catch (NoSuchProviderException e) {
+			e.printStackTrace();
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) {
+		SeeEmails se = new SeeEmails();
+		se.check(host, mailStoreType, username, password);
+
+	}
+	//   
 
 }
