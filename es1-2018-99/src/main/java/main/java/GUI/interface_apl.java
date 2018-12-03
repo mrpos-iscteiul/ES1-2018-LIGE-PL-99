@@ -111,7 +111,7 @@ public class interface_apl extends JFrame {
 					try {
 						eg.start();
 					} catch (MessagingException e1) {
-						
+					//S
 						e1.printStackTrace();
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
