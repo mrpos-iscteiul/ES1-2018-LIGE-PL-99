@@ -22,6 +22,9 @@ public class interface_si extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JPasswordField textField_3;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -60,20 +63,20 @@ public class interface_si extends JFrame{
 			}
 		});
 		textField.setForeground(Color.LIGHT_GRAY);
-		textField.setBounds(147, 87, 147, 26);
+		textField.setBounds(179, 30, 147, 26);
 		panel.add(textField);
 		textField.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("Facebook Access Token");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel.setToolTipText("");
 		lblNewLabel.setLabelFor(lblNewLabel);
-		lblNewLabel.setBounds(53, 90, 82, 26);
+		lblNewLabel.setBounds(12, 29, 167, 26);
 		panel.add(lblNewLabel);
 		///////////////////////
 		JLabel lblNewLabel_1 = new JLabel("Twitter Access Token");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1.setBounds(53, 160, 88, 26);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(12, 93, 167, 26);
 		panel.add(lblNewLabel_1);
 		
 		JButton btnSignIn = new JButton("Sign in");
@@ -83,8 +86,33 @@ public class interface_si extends JFrame{
 				
 			}
 		});
-		btnSignIn.setBounds(197, 223, 97, 25);
+		btnSignIn.setBounds(199, 251, 97, 25);
 		panel.add(btnSignIn);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(179, 94, 147, 26);
+		panel.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(179, 151, 147, 26);
+		panel.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JLabel lblNewLabel_3 = new JLabel("E-mail");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_3.setBounds(12, 154, 124, 21);
+		panel.add(lblNewLabel_3);
+		
+		textField_3 = new JPasswordField();
+		textField_3.setBounds(179, 212, 147, 26);
+		panel.add(textField_3);
+		textField_3.setColumns(10);
+		
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblPassword.setBounds(12, 217, 97, 21);
+		panel.add(lblPassword);
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(InterfaceGrafica.class.getResource("1413073433_images-2-.jpg")));
 		lblNewLabel_2.setLabelFor(lblNewLabel_2);
