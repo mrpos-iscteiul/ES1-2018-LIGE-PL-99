@@ -129,6 +129,19 @@ public class InterfaceGrafica extends JFrame {
 
 			}
 		});
+		
+		JButton signIn = new JButton("Sign In");
+		signIn.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				String user = textField.getText();
+				String pass = password.getText();
+				try {
+					xml.newEl(user, "smtp", pass);
+				} catch (Exception e1) {			
+				}
+			}
+		});
 
 		btnNewButton.setForeground(SystemColor.textHighlight);
 		btnNewButton.setVerticalAlignment(SwingConstants.TOP);
