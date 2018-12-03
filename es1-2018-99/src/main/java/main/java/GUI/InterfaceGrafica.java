@@ -19,6 +19,8 @@ import main.java.xml.XmlProject;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -142,7 +144,7 @@ public class InterfaceGrafica extends JFrame {
 	
 	public void readXML(String name, String pass) {
 		try {
-
+			Boolean logged = false;
 			File fXmlFile = new File("config.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -166,15 +168,27 @@ public class InterfaceGrafica extends JFrame {
 					if(eElement.getAttribute("Account").equals(name) && eElement.getAttribute("Password").equals(pass)) {
 						apl = new interface_apl();
 						apl.setVisible(true);
+						logged=true;
 					}
 					
 						
 				}
+				
 			}
+			if (logged==false)
+				failedLogIn();
+			
 		    } catch (Exception e) {
 			e.printStackTrace();
 		    }
 		  }
+	
+	public void failedLogIn() {
+		final JPanel panel = new JPanel();
+
+	    JOptionPane.showMessageDialog(panel, "Unvalid User or Password", "Warning",
+	    		JOptionPane.WARNING_MESSAGE);
+	}
 
 	
 }
