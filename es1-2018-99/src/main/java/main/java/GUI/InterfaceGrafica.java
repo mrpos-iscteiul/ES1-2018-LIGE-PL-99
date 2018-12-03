@@ -169,6 +169,7 @@ public class InterfaceGrafica extends JFrame {
 						apl = new interface_apl();
 						apl.setVisible(true);
 						logged=true;
+						setVisible(false);
 					}
 					
 						
