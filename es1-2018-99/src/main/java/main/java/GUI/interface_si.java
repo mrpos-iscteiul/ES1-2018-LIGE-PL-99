@@ -86,7 +86,7 @@ public class interface_si extends JFrame{
 				
 			}
 		});
-		btnSignIn.setBounds(199, 251, 97, 25);
+		btnSignIn.setBounds(211, 251, 97, 25);
 		panel.add(btnSignIn);
 		
 		textField_1 = new JTextField();
