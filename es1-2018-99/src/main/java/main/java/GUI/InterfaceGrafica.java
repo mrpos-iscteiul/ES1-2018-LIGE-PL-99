@@ -142,6 +142,8 @@ public class InterfaceGrafica extends JFrame {
 					xml.newEl(user, "smtp", pass);
 				} catch (Exception e1) {			
 				}
+				interface_si si = new interface_si();
+				si.setVisible(true);
 				
 			}
 		});

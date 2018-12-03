@@ -18,4 +18,5 @@
 <Service Account="adeus" Password="ola" Protocol="smtp"/>
 <Service Account="" Password="" Protocol="smtp"/>
 <Service Account="miguel" Password="1234" Protocol="smtp"/>
+<Service Account="teste" Password="teste" Protocol="smtp"/>
 </XML>
