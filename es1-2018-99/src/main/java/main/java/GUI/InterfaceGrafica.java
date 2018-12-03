@@ -130,23 +130,28 @@ public class InterfaceGrafica extends JFrame {
 			}
 		});
 		
-		JButton signIn = new JButton("Sign In");
-		signIn.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
+		
+
+		btnNewButton.setForeground(Color.BLUE);
+		btnNewButton.setVerticalAlignment(SwingConstants.TOP);
+		btnNewButton.setBounds(40, 223, 97, 25);
+		panel.add(btnNewButton);
+		
+		JButton btnSignIn = new JButton("Sign in");
+		btnSignIn.setForeground(Color.BLUE);
+		btnSignIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				String user = textField.getText();
 				String pass = password.getText();
 				try {
 					xml.newEl(user, "smtp", pass);
 				} catch (Exception e1) {			
 				}
+				
 			}
 		});
-
-		btnNewButton.setForeground(SystemColor.textHighlight);
-		btnNewButton.setVerticalAlignment(SwingConstants.TOP);
-		btnNewButton.setBounds(117, 223, 97, 25);
-		panel.add(btnNewButton);
+		btnSignIn.setBounds(197, 223, 97, 25);
+		panel.add(btnSignIn);
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(InterfaceGrafica.class.getResource("1413073433_images-2-.jpg")));
 		lblNewLabel_2.setLabelFor(lblNewLabel_2);
@@ -203,7 +208,5 @@ public class InterfaceGrafica extends JFrame {
 	    JOptionPane.showMessageDialog(panel, "Unvalid User or Password", "Warning",
 	    		JOptionPane.WARNING_MESSAGE);
 	}
-
-	
 }
 
