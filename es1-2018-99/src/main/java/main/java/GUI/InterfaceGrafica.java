@@ -5,8 +5,14 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import main.java.xml.XmlProject;
@@ -21,6 +27,7 @@ import java.awt.SystemColor;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
@@ -31,6 +38,7 @@ public class InterfaceGrafica extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField password;
+	private interface_apl apl;
 	XmlProject xml = new XmlProject();
 
 	/**
@@ -103,16 +111,19 @@ public class InterfaceGrafica extends JFrame {
 		password.setBounds(147, 160, 147, 26);
 		panel.add(password);
 
-		JButton btnNewButton = new JButton("Sign in");
+		JButton btnNewButton = new JButton("Log in");
 		btnNewButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 				String user = textField.getText();
 				String pass = password.getText();
-				try {
-					xml.newEl(user, "smtp", pass);
-				} catch (Exception e1) {			
-				}
+			//	try {
+			//		xml.newEl(user, "smtp", pass);
+			//	} catch (Exception e1) {			
+			//	}
+				
+				readXML(user, pass);
+				
 
 			}
 		});
@@ -128,5 +139,43 @@ public class InterfaceGrafica extends JFrame {
 		lblNewLabel_2.setBounds(12, 83, 136, 134);
 		contentPane.add(lblNewLabel_2);
 	}
+	
+	public void readXML(String name, String pass) {
+		try {
+
+			File fXmlFile = new File("config.xml");
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(fXmlFile);
+					
+			//optional, but recommended
+			//read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
+			doc.getDocumentElement().normalize();
+
+			NodeList nList = doc.getElementsByTagName("Service");
+					
+			for (int temp = 0; temp < nList.getLength(); temp++) {
+
+				Node nNode = nList.item(temp);
+						
+						
+				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+					Element eElement = (Element) nNode;
+
+					if(eElement.getAttribute("Account").equals(name) && eElement.getAttribute("Password").equals(pass)) {
+						apl = new interface_apl();
+						apl.setVisible(true);
+					}
+					
+						
+				}
+			}
+		    } catch (Exception e) {
+			e.printStackTrace();
+		    }
+		  }
+
+	
 }
 

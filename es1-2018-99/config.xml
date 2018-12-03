@@ -16,7 +16,4 @@
 <Service Account="manuel@iscte-iul.pt" Password="xyzw" Protocol="smtp"/>
 <OtherNewTag>More new data</OtherNewTag>
 <Service Account="adeus" Password="ola" Protocol="smtp"/>
-<Service Account="ola" Password="adeus" Protocol="smtp"/>
-<Service Account="diogo" Password="juvandes" Protocol="smtp"/>
-<Service Account="diogo" Password="ooooooo" Protocol="smtp"/>
 </XML>
