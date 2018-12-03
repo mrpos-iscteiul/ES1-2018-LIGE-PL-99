@@ -119,11 +119,6 @@ public class InterfaceGrafica extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String user = textField.getText();
 				String pass = password.getText();
-			//	try {
-			//		xml.newEl(user, "smtp", pass);
-			//	} catch (Exception e1) {			
-			//	}
-				
 				readXML(user, pass);
 				
 

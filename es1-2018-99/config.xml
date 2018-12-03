@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><XML>	
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<XML>	
 	<Service Account="joao@iscte-iul.pt" Password="abcd" Protocol="imap"/>
 	<Service Account="jose@iscte-iul.pt" Password="efgh" Protocol="pop"/>
 	<Paths>
@@ -16,4 +17,5 @@
 <OtherNewTag>More new data</OtherNewTag>
 <Service Account="adeus" Password="ola" Protocol="smtp"/>
 <Service Account="" Password="" Protocol="smtp"/>
+<Service Account="miguel" Password="1234" Protocol="smtp"/>
 </XML>
