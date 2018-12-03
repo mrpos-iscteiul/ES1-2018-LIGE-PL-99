@@ -34,6 +34,7 @@ public class EmailGUI {
 	JList<Email> lista = new JList<Email>(ecra);
 	JScrollPane scroll = new JScrollPane(lista);	
 	SeeEmails se = new SeeEmails();
+	SendMailGUI smg = new SendMailGUI();
 	int mails=0;
 	ArrayList<Message> messages = new ArrayList<Message>();
 
@@ -88,8 +89,9 @@ public class EmailGUI {
 
 		compor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
-
-
+				smg = new SendMailGUI();
+				smg.init();
+				
 			}
 		});
 

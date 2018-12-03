@@ -107,7 +107,17 @@ public class interface_apl extends JFrame {
 		chckbxEmail.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chckbxEmail.isSelected()) {
-														
+					EmailGUI eg = new EmailGUI();
+					try {
+						eg.start();
+					} catch (MessagingException e1) {
+						
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					eg.init();									
 				}
 
 				feed.setModel(ecra);
