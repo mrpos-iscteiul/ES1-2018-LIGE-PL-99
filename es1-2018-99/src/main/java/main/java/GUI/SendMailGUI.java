@@ -1,12 +1,18 @@
 package main.java.GUI;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
+
+import main.java.Email.EmailSend;
 
 public class SendMailGUI {
 	
@@ -14,19 +20,35 @@ public class SendMailGUI {
 	
 	private void addFrameContent() {
 		
-		JTextField destino = new JTextField("Destino");
-		JTextField assunto = new JTextField("Assunto");	
-		JTextField texto = new JTextField("texto");
+		final JTextField destino = new JTextField("Destino");
+		final JTextField assunto = new JTextField("Assunto");	
+		final JTextField texto = new JTextField("texto");
+		JButton send = new JButton("Send");
+		JPanel cima = new JPanel();
+		cima.setLayout(new GridLayout(1,2));
 		JPanel info = new JPanel();
 		info.setLayout(new GridLayout(2,1));
 		JPanel corpo = new JPanel();
 		JPanel janela = new JPanel();
 		janela.setLayout(new GridLayout(2,1));
 		info.add(destino);
-		info.add(assunto);
-		
-		janela.add(info);
+		info.add(assunto);	
+		cima.add(info);
+		cima.add(send);
+		janela.add(cima);
 		janela.add(texto);
+		
+		send.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {				
+				String dest=destino.getText();
+				String asst=assunto.getText();
+				String txt=texto.getText();
+				EmailSend mailsend= new EmailSend(dest, asst, txt);
+				mailsend.send();
+
+			}
+		});
+		
 	
 		frame= new JFrame("Send Mail");
 		frame.add(janela);

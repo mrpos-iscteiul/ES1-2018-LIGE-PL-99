@@ -11,6 +11,15 @@ import javax.mail.internet.MimeMessage;
 public class EmailSend {
 	
 	int envios=0;
+	String destino;
+	String assunto;
+	String texto;
+	
+	public EmailSend(String des, String sub, String txt){
+		this.destino=des;
+		this.assunto=sub;
+		this.texto=txt;
+	}
 	
 	public int getEnvios() {
 		return envios;
@@ -46,10 +55,10 @@ public class EmailSend {
 			mailSession.setDebug(sessionDebug);
 			Message msg = new MimeMessage(mailSession);
 			msg.setFrom(new InternetAddress(from));
-			InternetAddress[] address = {new InternetAddress(to)};
+			InternetAddress[] address = {new InternetAddress(destino)};
 			msg.setRecipients(Message.RecipientType.TO, address);
-			msg.setSubject(subject); msg.setSentDate(new Date());
-			msg.setText(messageText);
+			msg.setSubject(assunto); msg.setSentDate(new Date());
+			msg.setText(texto);
 
 			Transport transport=mailSession.getTransport("smtp");
 			transport.connect(host, user, pass);
@@ -67,10 +76,10 @@ public class EmailSend {
 	 * @param args
 	 */
 	public static void main(String args[]){
-		EmailSend es = new EmailSend();
-		es.send();
-		System.out.println(es.envios);
-		System.out.println("");
+//		EmailSend es = new EmailSend();
+//		es.send();
+//		System.out.println(es.envios);
+//		System.out.println("");
 
 	}
 }
