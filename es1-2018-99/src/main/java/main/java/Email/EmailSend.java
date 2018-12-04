@@ -14,11 +14,15 @@ public class EmailSend {
 	String destino;
 	String assunto;
 	String texto;
+	String user;
+	String password;
 	
-	public EmailSend(String des, String sub, String txt){
+	public EmailSend(String des, String sub, String txt, String user, String pass){
 		this.destino=des;
 		this.assunto=sub;
 		this.texto=txt;
+		this.user=user;
+		this.password=pass;
 	}
 	
 	public int getEnvios() {
@@ -27,13 +31,7 @@ public class EmailSend {
 
 	public  void send() {
 		try{
-			String host ="smtp.gmail.com" ;
-			final String user = "diogombj@gmail.com";
-			final String pass = "sednavuj";
-			String to = "dmbjuvandes@gmail.com";
-			String from = "diogombj@gmail.com";
-			String subject = "This is confirmation number for your expertprogramming account. Please insert this number to activate your account.";
-			String messageText = "Your Is Test Email :";
+			String host ="smtp.gmail.com" ;		
 			boolean sessionDebug = false;
 
 			Properties props = System.getProperties();
@@ -49,19 +47,19 @@ public class EmailSend {
 			Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
 			Session mailSession = Session.getInstance(props, new javax.mail.Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication(user, pass);
+					return new PasswordAuthentication(user, password);
 				}
 			});
 			mailSession.setDebug(sessionDebug);
 			Message msg = new MimeMessage(mailSession);
-			msg.setFrom(new InternetAddress(from));
+			msg.setFrom(new InternetAddress(user));
 			InternetAddress[] address = {new InternetAddress(destino)};
 			msg.setRecipients(Message.RecipientType.TO, address);
 			msg.setSubject(assunto); msg.setSentDate(new Date());
 			msg.setText(texto);
 
 			Transport transport=mailSession.getTransport("smtp");
-			transport.connect(host, user, pass);
+			transport.connect(host, user, password);
 			transport.sendMessage(msg, msg.getAllRecipients());
 			transport.close();
 			System.out.println("message send successfully");

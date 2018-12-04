@@ -7,7 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 import com.restfb.types.Post;
 
@@ -34,6 +38,7 @@ import javax.swing.JList;
 
 public class interface_apl extends JFrame {
 
+	JFrame frame;
 	SeeEmails se=new SeeEmails();
 	TwitterGUI t = new TwitterGUI();
 	Fmain f = new Fmain();
@@ -41,18 +46,24 @@ public class interface_apl extends JFrame {
 	JList<String> feed = new JList<String>(ecra);
 	JScrollPane scroll = new JScrollPane(feed);	
 	int mails=0;
+	String user;
 
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
+	 * 
+	 * 
 	 */
-	public static void main(String[] args) {
+	
+	public interface_apl(String user) {
+		this.user=user;
+	}
+	public void init() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					interface_apl frame = new interface_apl();
-					frame.setVisible(true);
+					addFrameC();
 				} catch (Exception e) {
 					e.printStackTrace();
 					//////////////
@@ -64,7 +75,7 @@ public class interface_apl extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public interface_apl() {
+	public void addFrameC() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 583, 428);
 		contentPane = new JPanel();
@@ -72,14 +83,9 @@ public class interface_apl extends JFrame {
 		//		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout());
-
-
-
-
 		JPanel panel = new JPanel();
 		//		panel.setBounds(0, 92, 458, 289);
 		panel.setLayout(new GridLayout(1,3));
-
 		final JCheckBox chckbxFacebook = new JCheckBox("Facebook");
 		chckbxFacebook.setBounds(462, 112, 103, 25);
 		final JCheckBox chckbxTwitter = new JCheckBox("Twitter");
@@ -107,13 +113,19 @@ public class interface_apl extends JFrame {
 		chckbxEmail.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chckbxEmail.isSelected()) {
-					EmailGUI eg = new EmailGUI();
+					EmailGUI eg = new EmailGUI(user);
 					try {
 						eg.start();
 					} catch (MessagingException e1) {
 					//S
 						e1.printStackTrace();
 					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (SAXException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ParserConfigurationException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
@@ -139,6 +151,13 @@ public class interface_apl extends JFrame {
 		});
 		
 		contentPane.add(panel, BorderLayout.CENTER);
+		frame= new JFrame();
+		frame.add(contentPane);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frame.setSize(800,800);
+		frame.setLocation(400,100);	
+		frame.setVisible(true);
+
 		//		JLabel lblNewLabel = new JLabel("New label");
 		//		lblNewLabel.setBounds(12, 13, 446, 40);
 		//		panel.add(lblNewLabel);

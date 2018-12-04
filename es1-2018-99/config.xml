@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<XML>	
-	<Service Account="joao@iscte-iul.pt" Password="abcd" Protocol="imap"/>
-	<Service Account="jose@iscte-iul.pt" Password="efgh" Protocol="pop"/>
+<XML>
 	<Paths>
 		<docPath>/users/js/importantDocument.doc</docPath>
 		<logPath>/users/js/dailyLog.log</logPath>
-	</Paths>	
-<Service Account="manuel@iscte-iul.pt" Password="xyzw" Protocol="smtp"/>
+	</Paths>
 <OtherNewTag>More new data</OtherNewTag>
 <OtherNewTag>More new data</OtherNewTag>
 <OtherNewTag>More new data</OtherNewTag>
-<Service Account="manuel@iscte-iul.pt" Password="xyzw" Protocol="smtp"/>
 <OtherNewTag>More new data</OtherNewTag>
-<Service Account="diogo" Password="ola" Protocol="smtp"/>
-<Service Account="manuel@iscte-iul.pt" Password="xyzw" Protocol="smtp"/>
 <OtherNewTag>More new data</OtherNewTag>
-<Service Account="adeus" Password="ola" Protocol="smtp"/>
-<Service Account="" Password="" Protocol="smtp"/>
-<Service Account="miguel" Password="1234" Protocol="smtp"/>
-<Service Account="teste" Password="teste" Protocol="smtp"/>
-<Service Account="sadasda" Password="2123123" Protocol="smtp"/>
+<Service Account="diogo" Mailpassword="" Password="adeus" Protocol="smtp" mail=""/>
+<Service Account="ola" Mailpassword="" Password="adeus" Protocol="smtp" mail=""/>
+<Service Account="adeus" Mailpassword="" Password="ola" Protocol="smtp" mail=""/>
+<Service Account="juvandes" Mailpassword="" Password="diogo" Protocol="smtp" mail=""/>
+<Service Account="miguel" Mailpassword="" Password="1234" Protocol="smtp" mail=""/>
+<Service Account="123" Mailpassword="" Password="456" Protocol="smtp" mail=""/>
+<Service Account="456" Mailpassword="" Password="123" Protocol="smtp" mail=""/>
+<Service Account="user" Mailpassword="" Password="pass" Protocol="smtp" mail=""/>
 </XML>

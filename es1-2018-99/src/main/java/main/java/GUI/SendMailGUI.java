@@ -3,6 +3,7 @@ package main.java.GUI;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 
 import javax.swing.JButton;
@@ -11,13 +12,26 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import main.java.Email.EmailSend;
 
 public class SendMailGUI {
 	
 	JFrame frame;
+	String user;
+	String passw;
 	
+	public SendMailGUI(String user, String passw) {
+		this.user=user;
+		this.passw=passw;
+	}
 	private void addFrameContent() {
 		
 		final JTextField destino = new JTextField("Destino");
@@ -43,7 +57,7 @@ public class SendMailGUI {
 				String dest=destino.getText();
 				String asst=assunto.getText();
 				String txt=texto.getText();
-				EmailSend mailsend= new EmailSend(dest, asst, txt);
+				EmailSend mailsend= new EmailSend(dest, asst, txt, user, passw);
 				mailsend.send();
 
 			}
@@ -67,9 +81,11 @@ public class SendMailGUI {
 			}
 		});
 	}
+	
+	
 	public static void main(String[] args) {
-		SendMailGUI se = new SendMailGUI();
-		se.init();
+//		SendMailGUI se = new SendMailGUI();
+//		se.init();
 
 	}
 

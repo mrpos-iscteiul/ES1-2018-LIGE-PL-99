@@ -38,7 +38,7 @@ public class XmlProject{
 	DocumentBuilder dBuilder;
 	Document doc;
 
-	public void newEl(String user, String protocol, String pass) throws ParserConfigurationException, SAXException, IOException {
+	public void newEl(String user, String protocol, String pass, String mail, String mailpass) throws ParserConfigurationException, SAXException, IOException {
 
 
 		try {
@@ -70,6 +70,8 @@ public class XmlProject{
 			newElement1.setAttribute("Protocol", protocol);
 			newElement1.setAttribute("Account", user);
 			newElement1.setAttribute("Password", pass);
+			newElement1.setAttribute("mail", mail);
+			newElement1.setAttribute("Mailpassword", mailpass);
 			Node n = doc.getDocumentElement();
 			n.appendChild(newElement1);
 

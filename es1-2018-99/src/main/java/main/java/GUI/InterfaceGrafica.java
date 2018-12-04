@@ -35,7 +35,7 @@ import java.awt.event.ActionEvent;
 
 public class InterfaceGrafica extends JFrame {
 
-
+	private String user;
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
@@ -120,32 +120,32 @@ public class InterfaceGrafica extends JFrame {
 				String user = textField.getText();
 				String pass = password.getText();
 				readXML(user, pass);
-				
+
 
 			}
 		});
-		
-		
+
+
 
 		btnNewButton.setForeground(Color.BLUE);
 		btnNewButton.setVerticalAlignment(SwingConstants.TOP);
 		btnNewButton.setBounds(40, 223, 97, 25);
 		panel.add(btnNewButton);
-		
+
 		JButton btnSignIn = new JButton("Sign in");
 		btnSignIn.setForeground(Color.BLUE);
 		btnSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String user = textField.getText();
+				user = textField.getText();
 				String pass = password.getText();
 				try {
-					xml.newEl(user, "smtp", pass);
+					xml.newEl(user, "smtp", pass, null, null);
 				} catch (Exception e1) {			
 				}
-				interface_si si = new interface_si();
-				si.setVisible(true);
+				interface_si si = new interface_si(user);
+				si.init();
 				setVisible(false);
-				
+
 			}
 		});
 		btnSignIn.setBounds(197, 223, 97, 25);
@@ -157,7 +157,7 @@ public class InterfaceGrafica extends JFrame {
 		lblNewLabel_2.setBounds(12, 83, 136, 134);
 		contentPane.add(lblNewLabel_2);
 	}
-	
+
 	public void readXML(String name, String pass) {
 		try {
 			Boolean logged = false;
@@ -165,46 +165,39 @@ public class InterfaceGrafica extends JFrame {
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(fXmlFile);
-					
-			//optional, but recommended
-			//read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
 			doc.getDocumentElement().normalize();
 
 			NodeList nList = doc.getElementsByTagName("Service");
-					
+
 			for (int temp = 0; temp < nList.getLength(); temp++) {
-
 				Node nNode = nList.item(temp);
-						
-						
+
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-
 					Element eElement = (Element) nNode;
-
 					if(eElement.getAttribute("Account").equals(name) && eElement.getAttribute("Password").equals(pass)) {
-						apl = new interface_apl();
+						apl = new interface_apl(user);
 						apl.setVisible(true);
 						logged=true;
 						setVisible(false);
 					}
-					
-						
+
+
 				}
-				
+
 			}
 			if (logged==false)
 				failedLogIn();
-			
-		    } catch (Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
-		    }
-		  }
-	
+		}
+	}
+
 	public void failedLogIn() {
 		final JPanel panel = new JPanel();
 
-	    JOptionPane.showMessageDialog(panel, "Unvalid User or Password", "Warning",
-	    		JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(panel, "Unvalid User or Password", "Warning",
+				JOptionPane.WARNING_MESSAGE);
 	}
 }
 

@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -21,6 +22,15 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import main.java.Email.SeeEmails;
 import main.java.Email.SeeEmails.Email;
@@ -34,22 +44,91 @@ public class EmailGUI {
 	JList<Email> lista = new JList<Email>(ecra);
 	JScrollPane scroll = new JScrollPane(lista);	
 	SeeEmails se = new SeeEmails();
-	SendMailGUI smg = new SendMailGUI();
+	SendMailGUI smg;
 	int mails=0;
 	ArrayList<Message> messages = new ArrayList<Message>();
+	private String user;
 
-	public void start() throws MessagingException, IOException {
 
-		se.check("pop.gmail.com", "pop3", "diogombj@gmail.com", "sednavuj");
+	public EmailGUI(String user) {
+		this.user=user;
+	}
+
+	public String getXMLuser() throws SAXException, IOException, ParserConfigurationException {
+
+		String mail=null;
+
+		Boolean logged = false;
+		File fXmlFile = new File("config.xml");
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+		Document doc = dBuilder.parse(fXmlFile);	
+		doc.getDocumentElement().normalize();
+
+		NodeList nList = doc.getElementsByTagName("Service");
+
+		for (int temp = 0; temp < nList.getLength(); temp++) {
+
+			Node nNode = nList.item(temp);
+
+
+			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+				Element eElement = (Element) nNode;
+
+				if(eElement.getAttribute("Account").equals(user)) {
+					mail=eElement.getAttribute("mail");
+				}
+
+
+			}
+
+		}
+
+		return mail;
+	}
+
+	public String getXMLpass() throws SAXException, IOException, ParserConfigurationException {
+
+		String pass=null;
+
+		Boolean logged = false;
+		File fXmlFile = new File("config.xml");
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+		Document doc = dBuilder.parse(fXmlFile);	
+		doc.getDocumentElement().normalize();
+
+		NodeList nList = doc.getElementsByTagName("Service");
+
+		for (int temp = 0; temp < nList.getLength(); temp++) {
+
+			Node nNode = nList.item(temp);
+
+			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+				Element eElement = (Element) nNode;
+
+				if(eElement.getAttribute("Account").equals(user)) {
+					pass=eElement.getAttribute("Mailpassword");
+				}	
+			}	
+		}
+		return pass;
+	}
+
+	public void start() throws MessagingException, IOException, SAXException, ParserConfigurationException {
+
+		se.check("pop.gmail.com", "pop3", getXMLuser(), getXMLpass());
 		messages.clear();
-		
+
 		for (Email m : se.getMs()) {	
 			ecra.addElement(m);
 		} 
 		lista.setModel(ecra);
 		//se.close();
 	}
-	
+
 	private void addFrameContent() {
 
 		JPanel pesquisa=new JPanel();
@@ -89,9 +168,17 @@ public class EmailGUI {
 
 		compor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
-				smg = new SendMailGUI();
+				try {
+					smg = new SendMailGUI(getXMLuser(), getXMLpass());
+				} catch (SAXException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				} catch (ParserConfigurationException e1) {
+					e1.printStackTrace();
+				}
 				smg.init();
-				
+
 			}
 		});
 
@@ -116,10 +203,10 @@ public class EmailGUI {
 
 
 	public static void main(String[] args) throws MessagingException, IOException {
-		EmailGUI eg = new EmailGUI();
-		eg.start();
-		eg.init();
-		
+		//		EmailGUI eg = new EmailGUI();
+		//		eg.start();
+		//		eg.init();
+
 	}
 
 }
