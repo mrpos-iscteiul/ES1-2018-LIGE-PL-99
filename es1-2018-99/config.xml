@@ -17,5 +17,4 @@
 <Service Account="123" Mailpassword="" Password="456" Protocol="smtp" mail=""/>
 <Service Account="456" Mailpassword="" Password="123" Protocol="smtp" mail=""/>
 <Service Account="user" Mailpassword="" Password="pass" Protocol="smtp" mail=""/>
-<Service Account="teste" Mailpassword="" Password="teste" Protocol="smtp" fbtoken="EAACnyXeKEEkBAEBd0pqQAT19f7emVmZCWh8ejRce7YUcY57pFOFux3FTZB93qJgHz9wsA5WW6X4ZCQsm0ivq36QQIAYaoChBsFi7z6ZBANr2fVZC75QZCwEL4WWPWskUQoZBcUpYRSRZCCuzqWmprZB9XaZBYOW4ZAPgIE8S6H88EygRwZDZD" mail="" t1=""/>
 </XML>

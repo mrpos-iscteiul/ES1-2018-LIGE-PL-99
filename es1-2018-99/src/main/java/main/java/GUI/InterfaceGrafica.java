@@ -117,8 +117,8 @@ public class InterfaceGrafica extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				String user = textField.getText();
-				String pass = password.getText();
+				user = textField.getText();
+				pass = password.getText();
 				readXML(user, pass);
 
 
