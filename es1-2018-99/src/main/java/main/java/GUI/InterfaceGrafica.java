@@ -144,6 +144,7 @@ public class InterfaceGrafica extends JFrame {
 				}
 				interface_si si = new interface_si();
 				si.setVisible(true);
+				setVisible(false);
 				
 			}
 		});
