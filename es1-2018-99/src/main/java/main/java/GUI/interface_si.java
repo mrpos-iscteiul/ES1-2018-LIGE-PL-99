@@ -60,43 +60,6 @@ public class interface_si extends JFrame{
 			}
 		});
 	}
-	public void writeXML(String mail, String passw) {
-		try {
-			Boolean logged = false;
-			File fXmlFile = new File("config.xml");
-			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(fXmlFile);
-			doc.getDocumentElement().normalize();
-
-			NodeList nList = doc.getElementsByTagName("Service");
-
-			for (int temp = 0; temp < nList.getLength(); temp++) {
-				Node nNode = nList.item(temp);
-
-				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-					Element eElement = (Element) nNode;
-					if(eElement.getAttribute("Account").equals(user)) {
-						System.out.println(user);
-						eElement.setAttribute("mail", mail);
-						System.out.println(mail);;
-						eElement.setAttribute("Mailpassword", passw);
-						System.out.println(passw);
-						//						apl = new interface_apl(user);
-						//						apl.setVisible(true);
-						//						logged=true;
-						//						setVisible(false);
-					}
-
-
-				}
-
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 
 
@@ -170,11 +133,11 @@ public class interface_si extends JFrame{
 		btnSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String m = textField_2.getText();
-				System.out.println("botao");
 				String p = textField_3.getText();
-				//writeXML(m, p);
+				String f = textField.getText();
+				String t1 = textField_1.getText();
 				try {
-					xml.newEl(user, "smtp", pass, m, p);
+					xml.newEl(user, "smtp", pass, m, p,f,t1);
 				} catch (Exception e1) {			
 				}
 				

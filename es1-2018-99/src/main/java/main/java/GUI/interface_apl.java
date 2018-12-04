@@ -41,7 +41,7 @@ public class interface_apl extends JFrame {
 	JFrame frame;
 	SeeEmails se=new SeeEmails();
 	TwitterGUI t = new TwitterGUI();
-	Fmain f = new Fmain();
+	
 	DefaultListModel<String> ecra = new DefaultListModel();
 	JList<String> feed = new JList<String>(ecra);
 	JScrollPane scroll = new JScrollPane(feed);	
@@ -140,7 +140,19 @@ public class interface_apl extends JFrame {
 		chckbxFacebook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chckbxFacebook.isSelected()) {
-					f.feed();
+					Fmain f = new Fmain(user);
+					try {
+						f.feed();
+					} catch (SAXException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ParserConfigurationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					for(Post p : (ArrayList<Post>) f.getP()) {
 						String s = "facebook ----> Post: " + p.getMessage()+"ID:  "+p.getId();
 						ecra.addElement(s);
