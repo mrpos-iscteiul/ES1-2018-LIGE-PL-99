@@ -17,5 +17,4 @@
 <Service Account="123" Mailpassword="" Password="456" Protocol="smtp" mail=""/>
 <Service Account="456" Mailpassword="" Password="123" Protocol="smtp" mail=""/>
 <Service Account="user" Mailpassword="" Password="pass" Protocol="smtp" mail=""/>
-<Service Account="miguel" Mailpassword="Panadinho" Password="1234" Protocol="smtp" mail="miguelpenedo1997@gmail.com"/>
 </XML>

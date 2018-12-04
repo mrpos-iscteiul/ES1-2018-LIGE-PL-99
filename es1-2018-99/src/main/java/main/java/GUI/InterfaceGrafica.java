@@ -173,7 +173,7 @@ public class InterfaceGrafica extends JFrame {
 					Element eElement = (Element) nNode;
 					if(eElement.getAttribute("Account").equals(name) && eElement.getAttribute("Password").equals(pass)) {
 						apl = new interface_apl(user);
-						apl.setVisible(true);
+						apl.init();
 						logged=true;
 						setVisible(false);
 					}
