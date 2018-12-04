@@ -36,12 +36,12 @@ import java.awt.event.ActionEvent;
 public class InterfaceGrafica extends JFrame {
 
 	private String user;
+	private String pass;
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField password;
 	private interface_apl apl;
-	XmlProject xml = new XmlProject();
 
 	/**
 	 * Launch the application
@@ -137,12 +137,9 @@ public class InterfaceGrafica extends JFrame {
 		btnSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				user = textField.getText();
-				String pass = password.getText();
-				try {
-					xml.newEl(user, "smtp", pass, null, null);
-				} catch (Exception e1) {			
-				}
-				interface_si si = new interface_si(user);
+				pass = password.getText();
+				
+				interface_si si = new interface_si(user,pass);
 				si.init();
 				setVisible(false);
 

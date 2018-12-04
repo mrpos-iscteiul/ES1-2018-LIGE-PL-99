@@ -26,6 +26,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import main.java.xml.XmlProject;
+
 public class interface_si extends JFrame{
 
 	private static final long serialVersionUID = 1L;
@@ -37,11 +39,15 @@ public class interface_si extends JFrame{
 	private JPasswordField textField_3;
 	private String user;
 	private interface_apl apl;
+	private String pass;
+	XmlProject xml = new XmlProject();
 
 
-	public interface_si(String user) {
+	public interface_si(String user, String pass) {
 		this.user=user;
+		this.pass=pass;
 	}
+
 
 	public void init() {
 		EventQueue.invokeLater(new Runnable() {
@@ -166,7 +172,12 @@ public class interface_si extends JFrame{
 				String m = textField_2.getText();
 				System.out.println("botao");
 				String p = textField_3.getText();
-				writeXML(m, p);
+				//writeXML(m, p);
+				try {
+					xml.newEl(user, "smtp", pass, m, p);
+				} catch (Exception e1) {			
+				}
+				
 				apl=new interface_apl(user);
 				apl.init();
 			}
