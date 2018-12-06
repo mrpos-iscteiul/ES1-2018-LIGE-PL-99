@@ -146,7 +146,7 @@ public class EmailGUI {
 		text.setText("procurar");
 		corpo.setLayout(null);
 		JScrollPane scrollArea = new JScrollPane();
-		scrollArea.setBounds(145, 5, 109, 713);
+		scrollArea.setBounds(12, 5, 367, 713);
 
 		corpo.add(scrollArea);
 		esquerda.add(scroll);
