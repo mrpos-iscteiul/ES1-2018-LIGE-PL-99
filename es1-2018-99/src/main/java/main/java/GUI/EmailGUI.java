@@ -140,23 +140,19 @@ public class EmailGUI {
 
 
 		JButton compor=new JButton("Compor");
-		final JTextField text = new JTextField();
+		final JTextField text = new JTextField();		
+		final JTextArea txt=new JTextArea();
 		JButton button = new JButton("Search");	
 
 		text.setText("procurar");
-		corpo.setLayout(null);
-		JScrollPane scrollArea = new JScrollPane();
-		scrollArea.setBounds(194, 5, 2, 2);
-///
+		txt.setLineWrap(true);
+		JScrollPane scrollArea = new JScrollPane(txt);
+
 		corpo.add(scrollArea);
 		esquerda.add(scroll);
 		esquerda.add(compor);
 		timeline.add(esquerda);
 		timeline.add(corpo);
-		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(12, 5, 379, 713);
-		corpo.add(textArea);
 		pesquisa.add(text);	
 		pesquisa.add(button);
 
@@ -201,8 +197,8 @@ public class EmailGUI {
 
 
 		frame= new JFrame("Mail");
-		frame.getContentPane().add(pesquisa,BorderLayout.NORTH);
-		frame.getContentPane().add(timeline,BorderLayout.CENTER);		
+		frame.add(pesquisa,BorderLayout.NORTH);
+		frame.add(timeline,BorderLayout.CENTER);		
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setSize(800,800);
 		frame.setLocation(400,100);	
@@ -225,4 +221,5 @@ public class EmailGUI {
 				eg.init();
 
 	}
+
 }
