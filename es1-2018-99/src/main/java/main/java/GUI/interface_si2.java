@@ -6,11 +6,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import main.java.xml.XmlProject;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
+
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
@@ -28,16 +33,21 @@ public class interface_si2 extends JFrame {
 	private JTextField textField_6;
 	private JTextField textField_7;
 	private JPasswordField passwordField;
+	XmlProject xml = new XmlProject();
+	private String user;
+	private interface_apl apl;
+	private String pass;
+	private InterfaceGrafica ig;
+	private JFrame frame;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void init() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					interface_si2 frame = new interface_si2();
-					frame.setVisible(true);
+					addFrame();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -49,7 +59,12 @@ public class interface_si2 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public interface_si2() {
+	public interface_si2(String user, String pass) {
+		this.user=user;
+		this.pass=pass;
+	}
+	
+	public void addFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 717, 621);
 		contentPane = new JPanel();
@@ -164,8 +179,38 @@ public class interface_si2 extends JFrame {
 		btnSignIn.setBounds(447, 531, 97, 25);
 		contentPane.add(btnSignIn);
 		
+		btnSignIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String m = textField_2.getText();
+				String p = passwordField.getText();
+				String f = textField.getText();
+				String t1 = textField_1.getText();
+				try {
+					xml.newEl(user, "smtp", pass, m, p,f,t1);
+				} catch (Exception e1) {			
+				}
+				
+				apl=new interface_apl(getUser());
+				apl.init();
+			}
+		});
+		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(529, 241, 158, 22);
 		contentPane.add(passwordField);
+		frame= new JFrame();
+		frame.add(contentPane);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frame.setSize(800,800);
+		frame.setLocation(400,100);	
+		frame.setVisible(true);
+	}
+	
+	public String getUser() {
+		return user;
+	}
+	
+	public String getPass() {
+		return pass;
 	}
 }

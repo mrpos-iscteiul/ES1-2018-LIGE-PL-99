@@ -140,7 +140,8 @@ public class InterfaceGrafica extends JFrame {
 				user = textField.getText();
 				pass = password.getText();
 				
-				interface_si si = new interface_si(user,pass);
+				interface_si2 si = new interface_si2(user,pass);
+				System.out.println("User e pass : " + user + " " + pass);
 				si.init();
 				setVisible(false);
 
@@ -196,6 +197,14 @@ public class InterfaceGrafica extends JFrame {
 
 		JOptionPane.showMessageDialog(panel, "Unvalid User or Password", "Warning",
 				JOptionPane.WARNING_MESSAGE);
+	}
+	
+	public String getUser() {
+		return user;
+	}
+	
+	public String getPass() {
+		return pass;
 	}
 }
 
