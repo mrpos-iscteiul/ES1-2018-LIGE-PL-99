@@ -27,6 +27,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import main.java.xml.XmlProject;
+import java.awt.BorderLayout;
 
 public class interface_si extends JFrame{
 
@@ -41,11 +42,75 @@ public class interface_si extends JFrame{
 	private interface_apl apl;
 	private String pass;
 	XmlProject xml = new XmlProject();
+	private JTextField textField_4;
+	private JTextField textField_5;
+	private JTextField textField_6;
+	private JTextField textField_7;
 
 
 	public interface_si(String user, String pass) {
 		this.user=user;
 		this.pass=pass;
+		
+		JPanel panel = new JPanel();
+		getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setLayout(null);
+		
+		textField_4 = new JTextField();
+		textField_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		textField_4.setBounds(285, 51, 154, 22);
+		panel.add(textField_4);
+		textField_4.setColumns(10);
+		
+		textField_5 = new JTextField();
+		textField_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		textField_5.setBounds(285, 112, 154, 22);
+		panel.add(textField_5);
+		textField_5.setColumns(10);
+		
+		textField_6 = new JTextField();
+		textField_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		textField_6.setBounds(285, 175, 154, 22);
+		panel.add(textField_6);
+		textField_6.setColumns(10);
+		
+		textField_7 = new JTextField();
+		textField_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		textField_7.setBounds(285, 242, 155, 22);
+		panel.add(textField_7);
+		textField_7.setColumns(10);
+		
+		JLabel lblConsumerkey = new JLabel("ConsumerKey");
+		lblConsumerkey.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblConsumerkey.setBounds(140, 53, 110, 16);
+		panel.add(lblConsumerkey);
+		
+		JLabel lblConsumersecret = new JLabel("ConsumerSecret");
+		lblConsumersecret.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblConsumersecret.setBounds(140, 111, 110, 22);
+		panel.add(lblConsumersecret);
+		
+		JLabel lblAcesstoken = new JLabel("AcessToken");
+		lblAcesstoken.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblAcesstoken.setBounds(140, 174, 110, 22);
+		panel.add(lblAcesstoken);
+		
+		JLabel lblAceesstokensecret = new JLabel("AceessTokenSecret");
+		lblAceesstokensecret.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblAceesstokensecret.setBounds(138, 244, 143, 16);
+		panel.add(lblAceesstokensecret);
 	}
 
 
@@ -157,7 +222,7 @@ public class interface_si extends JFrame{
 		lblNewLabel_2.setBounds(12, 83, 136, 134);
 		contentPane.add(lblNewLabel_2);
 		frame = new JFrame();
-		frame.add(contentPane);
+		frame.getContentPane().add(contentPane);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setSize(800,800);
 		frame.setLocation(400,100);	
