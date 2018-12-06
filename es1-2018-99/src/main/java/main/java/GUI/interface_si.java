@@ -173,7 +173,7 @@ public class interface_si extends JFrame{
 		frame = new JFrame();
 		frame.getContentPane().add(contentPane);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.setSize(528,336);
+		frame.setSize(529,336);
 		frame.setLocation(400,100);	
 		frame.setVisible(true);
 
