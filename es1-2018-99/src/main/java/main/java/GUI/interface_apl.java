@@ -167,7 +167,7 @@ public class interface_apl extends JFrame {
 		frame= new JFrame();
 		frame.add(contentPane);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.setSize(800,800);
+		frame.setSize(270,160);
 		frame.setLocation(400,100);	
 		frame.setVisible(true);
 
