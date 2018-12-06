@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
 
 public class interface_si2 extends JFrame {
 
@@ -20,11 +21,11 @@ public class interface_si2 extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -68,11 +69,6 @@ public class interface_si2 extends JFrame {
 		textField_2.setBounds(529, 165, 158, 22);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(529, 240, 158, 22);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
 		
 		textField_4 = new JTextField();
 		textField_4.setBounds(529, 307, 158, 22);
@@ -148,5 +144,9 @@ public class interface_si2 extends JFrame {
 		JButton btnSignIn = new JButton("Sign in");
 		btnSignIn.setBounds(447, 531, 97, 25);
 		contentPane.add(btnSignIn);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(529, 241, 158, 22);
+		contentPane.add(passwordField);
 	}
 }
