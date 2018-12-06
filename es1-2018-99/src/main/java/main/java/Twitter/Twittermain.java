@@ -40,20 +40,20 @@ public class Twittermain {
 	}
 
 
-	public void timeline(String t1, String t2, String t3, String t4) throws TwitterException {
+	public void timeline() throws TwitterException {
 		
 
-	/*	cf.setDebugEnabled(true)
+		cf.setDebugEnabled(true)
 		.setOAuthConsumerKey("S3zvRA8J9QMlFFQneABHyNU68")
 		.setOAuthConsumerSecret("xYcjr59LMFWiWBTYPX4ZzZah8JAtAyaEPhZzeqrd4u1lZKcm9I")
 		.setOAuthAccessToken("561479088-UJZeNdtVGUbyyFCoNaaPqFkyOrYtPngufARZWeeb")
 		.setOAuthAccessTokenSecret("uSKkUOPxJSf9HyT76oLGEoY14g8mbDlp0tVSxCahBMRmz");
-		*/
-		cf.setDebugEnabled(true)
-		.setOAuthConsumerKey(t1)
-		.setOAuthConsumerSecret(t2)
-		.setOAuthAccessToken(t3)
-		.setOAuthAccessTokenSecret(t4);
+		
+//		cf.setDebugEnabled(true)
+//		.setOAuthConsumerKey(t1)
+//		.setOAuthConsumerSecret(t2)
+//		.setOAuthAccessToken(t3)
+//		.setOAuthAccessTokenSecret(t4);
 
 		tf = new TwitterFactory(cf.build());
 		twitter=tf.getInstance();
@@ -67,6 +67,8 @@ public class Twittermain {
 
 		}
 	}
+	
+	
 
 	public void retweeet (long id) throws TwitterException {
 		twitter.retweetStatus(id);

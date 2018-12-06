@@ -25,15 +25,15 @@ import main.java.Twitter.Twittermain.Tweet;
 import twitter4j.TwitterException;
 
 public class TwitterGUI {
-	
+
 	private JFrame frame;
 	DefaultListModel<Tweet> ecra = new DefaultListModel();
 	JList<Tweet> feed = new JList<Tweet>(ecra);
 	JScrollPane scroll = new JScrollPane(feed);	
 	Twittermain t = new Twittermain();
 	ArrayList<Tweet> selecionado = new ArrayList<Tweet>();
-	
-	
+
+
 	public void start() {
 		try {
 			t.timeline();
@@ -46,24 +46,24 @@ public class TwitterGUI {
 		}
 		feed.setModel(ecra);
 	}
-	
+
 	private void addFrameContent() {
 
 		JPanel pesquisa=new JPanel();
 		JPanel timeline=new JPanel();
 		JPanel tweet= new JPanel();
 		JPanel accoes=new JPanel();
-		
+
 		timeline.setLayout(new GridLayout(1,2)); 	
 		tweet.setLayout(new GridLayout(2,1));
 		accoes.setLayout(new GridLayout(1,2));
-		
+
 		JButton like=new JButton("Like");
 		JButton rt=new JButton("RT");
-		JTextField text = new JTextField();		
+		final JTextField text = new JTextField();		
 		final JTextArea txt=new JTextArea();
 		JButton button = new JButton("Search");	
-		
+
 		text.setText("procurar");
 		txt.setLineWrap(true);
 		JScrollPane scrollArea = new JScrollPane(txt);
@@ -75,7 +75,7 @@ public class TwitterGUI {
 		timeline.add(tweet);
 		pesquisa.add(text);	
 		pesquisa.add(button);
-		
+
 		feed.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {	
 				if(e.getValueIsAdjusting()) {	
@@ -86,7 +86,7 @@ public class TwitterGUI {
 			}
 
 		});
-		
+
 		like.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
 				Tweet tw = selecionado.get(0);
@@ -96,10 +96,10 @@ public class TwitterGUI {
 				} catch (TwitterException e1) {
 					e1.printStackTrace();
 				}
-				
+
 			}
 		});
-		
+
 		rt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
 				Tweet tw = selecionado.get(0);
@@ -109,10 +109,23 @@ public class TwitterGUI {
 				} catch (TwitterException e1) {
 					e1.printStackTrace();
 				}
-				
+
 			}
 		});
-		
+
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {	
+				txt.setText(null);
+				ecra.clear();
+				String filtro = text.getText();
+				for (Tweet s : (ArrayList<Tweet>) t.getList()) {
+					if(s.toString().contains(filtro))
+						ecra.addElement(s);
+				}
+				feed.setModel(ecra);
+			}
+		});
+
 		frame= new JFrame("Twitter");
 		frame.add(pesquisa,BorderLayout.NORTH);
 		frame.add(timeline,BorderLayout.CENTER);		
@@ -135,7 +148,7 @@ public class TwitterGUI {
 		TwitterGUI tg = new TwitterGUI();	
 		tg.start();
 		tg.init();
-		
+
 	}
 
 }

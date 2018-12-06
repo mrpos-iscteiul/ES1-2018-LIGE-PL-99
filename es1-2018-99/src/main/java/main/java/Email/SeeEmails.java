@@ -50,10 +50,9 @@ public class SeeEmails {
 
 	}
 
-	public void check(String host, String storeType, String user,
-			String password) 
-	{
+	public void check(String host, String storeType, String user, String password) {
 		try {
+			System.out.println(password);
 
 			//create properties field
 			Properties properties = new Properties();
@@ -65,8 +64,10 @@ public class SeeEmails {
 
 			//create the POP3 store object and connect with the pop server
 			Store store = emailSession.getStore("pop3s");
+			System.out.println("store");
 
 			store.connect(host, user, password);
+			System.out.println("conncet");
 
 			//create the folder object and open it
 			emailFolder = store.getFolder("INBOX");

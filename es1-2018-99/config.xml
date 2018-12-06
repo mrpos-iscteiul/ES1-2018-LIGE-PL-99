@@ -17,4 +17,5 @@
 <Service Account="123" Mailpassword="" Password="456" Protocol="smtp" mail=""/>
 <Service Account="456" Mailpassword="" Password="123" Protocol="smtp" mail=""/>
 <Service Account="user" Mailpassword="" Password="pass" Protocol="smtp" mail=""/>
+<Service Account="dmbjs" Mailpassword="sednavuj" Password="diogo" Protocol="smtp" fbtoken="" mail="diogombj@gmail.com" t1=""/>
 </XML>

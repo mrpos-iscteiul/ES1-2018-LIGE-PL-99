@@ -39,8 +39,8 @@ import javax.swing.JList;
 public class interface_apl extends JFrame {
 
 	JFrame frame;
-	SeeEmails se=new SeeEmails();
-	TwitterGUI t = new TwitterGUI();
+	SeeEmails se;
+	TwitterGUI t;
 	
 	DefaultListModel<String> ecra = new DefaultListModel();
 	JList<String> feed = new JList<String>(ecra);
@@ -104,6 +104,7 @@ public class interface_apl extends JFrame {
 		chckbxTwitter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chckbxTwitter.isSelected()) {
+					t= new TwitterGUI();
 					t.start();
 					t.init();
 				}

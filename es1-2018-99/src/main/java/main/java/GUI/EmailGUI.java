@@ -46,7 +46,6 @@ public class EmailGUI {
 	SeeEmails se = new SeeEmails();
 	SendMailGUI smg;
 	int mails=0;
-	ArrayList<Message> messages = new ArrayList<Message>();
 	private String user;
 
 
@@ -120,8 +119,8 @@ public class EmailGUI {
 	public void start() throws MessagingException, IOException, SAXException, ParserConfigurationException {
 
 		se.check("pop.gmail.com", "pop3", getXMLuser(), getXMLpass());
-		messages.clear();
-
+		System.out.println(getXMLuser());
+		
 		for (Email m : se.getMs()) {	
 			ecra.addElement(m);
 		} 
@@ -141,7 +140,7 @@ public class EmailGUI {
 
 
 		JButton compor=new JButton("Compor");
-		JTextField text = new JTextField();		
+		final JTextField text = new JTextField();		
 		final JTextArea txt=new JTextArea();
 		JButton button = new JButton("Search");	
 
@@ -181,6 +180,20 @@ public class EmailGUI {
 
 			}
 		});
+		
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {	
+				txt.setText(null);
+				ecra.clear();
+				String filtro = text.getText();
+				for(Email m : se.getMs()) {
+					if(m.toString().contains(filtro)) {
+						ecra.addElement(m);
+					}
+				}
+				lista.setModel(ecra);
+			}	
+		});
 
 
 		frame= new JFrame("Mail");
@@ -202,10 +215,10 @@ public class EmailGUI {
 	}
 
 
-	public static void main(String[] args) throws MessagingException, IOException {
-		//		EmailGUI eg = new EmailGUI();
-		//		eg.start();
-		//		eg.init();
+	public static void main(String[] args) throws MessagingException, IOException, SAXException, ParserConfigurationException {
+				EmailGUI eg = new EmailGUI("dmbjs");
+				eg.start();
+				eg.init();
 
 	}
 

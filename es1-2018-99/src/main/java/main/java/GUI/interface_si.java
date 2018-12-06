@@ -178,5 +178,7 @@ public class interface_si extends JFrame{
 		frame.setVisible(true);
 
 	}
+	
 }
+	
 

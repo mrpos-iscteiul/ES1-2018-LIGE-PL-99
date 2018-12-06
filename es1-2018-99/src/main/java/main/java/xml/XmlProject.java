@@ -74,9 +74,9 @@ public class XmlProject{
 			newElement1.setAttribute("Mailpassword", mailpass);
 			newElement1.setAttribute("fbtoken", fbtoken);
 			newElement1.setAttribute("t1", t1);
-			//newElement1.setAttribute("t2", t2);
-			//newElement1.setAttribute("t3", t3);
-
+//			newElement1.setAttribute("t2", t2);
+//			newElement1.setAttribute("t3", t3);
+//			newElement1.setAttribute("t4", t4);
 
 			Node n = doc.getDocumentElement();
 			n.appendChild(newElement1);
