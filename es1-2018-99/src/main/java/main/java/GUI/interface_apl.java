@@ -104,7 +104,7 @@ public class interface_apl extends JFrame {
 		chckbxTwitter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chckbxTwitter.isSelected()) {
-					t= new TwitterGUI();
+					t= new TwitterGUI(user);
 					t.start();
 					t.init();
 				}

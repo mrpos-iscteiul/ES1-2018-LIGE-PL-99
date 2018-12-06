@@ -184,9 +184,12 @@ public class interface_si2 extends JFrame {
 				String m = textField_2.getText();
 				String p = passwordField.getText();
 				String f = textField.getText();
-				String t1 = textField_1.getText();
+				String t1 = textField_4.getText();
+				String t2 = textField_5.getText();
+				String t3 = textField_6.getText();
+				String t4 = textField_7.getText();
 				try {
-					xml.newEl(user, "smtp", pass, m, p,f,t1);
+					xml.newEl(user, "smtp", pass, m, p,f,t1,t2,t3,t4);
 				} catch (Exception e1) {			
 				}
 				
