@@ -139,9 +139,9 @@ public class InterfaceGrafica extends JFrame {
 				user = textField.getText();
 				pass = password.getText();
 				
-				interface_si si = new interface_si(user,pass);
-				si.init();
-				setVisible(false);
+				/*interface_si si = new interface_si(user,pass);
+				//si.init();
+				setVisible(false);*/
 
 			}
 		});
