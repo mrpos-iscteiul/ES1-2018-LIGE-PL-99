@@ -72,6 +72,7 @@ public class InterfaceGrafica extends JFrame {
 		contentPane.setLayout(null);
 
 		JPanel panel = new JPanel();
+		////
 		panel.setBounds(173, 0, 338, 289);
 		contentPane.add(panel);
 		panel.setLayout(null);
