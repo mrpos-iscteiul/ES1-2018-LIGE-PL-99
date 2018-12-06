@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -19,9 +20,17 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import main.java.Twitter.Twittermain;
 import main.java.Twitter.Twittermain.Tweet;
+import main.java.xml.XmlProject;
 import twitter4j.TwitterException;
 
 public class TwitterGUI {
@@ -32,11 +41,17 @@ public class TwitterGUI {
 	JScrollPane scroll = new JScrollPane(feed);	
 	Twittermain t = new Twittermain();
 	ArrayList<Tweet> selecionado = new ArrayList<Tweet>();
-
-
+	XmlProject xml = new XmlProject();
+	private String t1;
+	private String t2;
+	private String t3;
+	private String t4;
+	private String name;
+	
 	public void start() {
 		try {
-			t.timeline();
+			readTokens(name);
+			t.timeline(t1,t2,t3,t4);
 		} catch (TwitterException e1) {
 			e1.printStackTrace();
 		}
@@ -143,12 +158,48 @@ public class TwitterGUI {
 			}
 		});
 	}
+	
+	public TwitterGUI (String name) {
+		this.name=name;
+	}
 
-	public static void main(String[] args) {
-		TwitterGUI tg = new TwitterGUI();	
-		tg.start();
-		tg.init();
+//	public static void main(String[] args) {
+//		TwitterGUI tg = new TwitterGUI(name,pass);	
+//		tg.start();
+//		tg.init();
 
+//	}
+	
+	public void readTokens(String name) {
+		try {
+			Boolean logged = false;
+			File fXmlFile = new File("config.xml");
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(fXmlFile);
+			doc.getDocumentElement().normalize();
+
+			NodeList nList = doc.getElementsByTagName("Service");
+
+			for (int temp = 0; temp < nList.getLength(); temp++) {
+				Node nNode = nList.item(temp);
+
+				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+					Element eElement = (Element) nNode;
+					if(eElement.getAttribute("Account").equals(name)) {
+						t1 = eElement.getAttribute(t1);
+						t2 = eElement.getAttribute(t2);
+						t3 = eElement.getAttribute(t3);
+						t4 = eElement.getAttribute(t4);
+					}
+
+
+				}
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
