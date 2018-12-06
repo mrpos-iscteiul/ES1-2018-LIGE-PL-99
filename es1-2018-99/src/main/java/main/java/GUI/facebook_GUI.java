@@ -74,7 +74,7 @@ public class facebook_GUI extends JFrame {
 		lblUser.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblUser.setBounds(172, 16, 56, 16);
 		panel.add(lblUser);
-		
+		//////
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(0, 49, 544, 248);
 		panel.add(textArea);
