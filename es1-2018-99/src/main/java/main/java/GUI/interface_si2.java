@@ -79,20 +79,9 @@ public class interface_si2 extends JFrame {
 				
 			}
 		});
-		textField.setBounds(529, 24, 158, 22);
+		textField.setBounds(529, 100, 158, 22);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				
-			}
-		});
-		textField_1.setBounds(529, 98, 158, 22);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
 		textField_2.addActionListener(new ActionListener() {
@@ -121,13 +110,9 @@ public class interface_si2 extends JFrame {
 		
 		JLabel lblFacebookAccessToken = new JLabel("Facebook Access token");
 		lblFacebookAccessToken.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblFacebookAccessToken.setBounds(316, 26, 201, 16);
+		lblFacebookAccessToken.setBounds(316, 100, 201, 16);
 		contentPane.add(lblFacebookAccessToken);
 		
-		JLabel lblTwitterAccessToken = new JLabel("Twitter Access token");
-		lblTwitterAccessToken.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTwitterAccessToken.setBounds(315, 100, 202, 16);
-		contentPane.add(lblTwitterAccessToken);
 		
 		JLabel lblEmail = new JLabel("E-mail");
 		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
