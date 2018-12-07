@@ -62,6 +62,10 @@ public class facebook_GUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	
+	public DefaultListModel<String> getPost(){
+		return ecra;
+	}
 	public void init() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

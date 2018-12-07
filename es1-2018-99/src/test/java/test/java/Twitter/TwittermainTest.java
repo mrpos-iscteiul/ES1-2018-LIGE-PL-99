@@ -4,21 +4,19 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import main.java.GUI.TwitterGUI;
 import main.java.Twitter.Twittermain;
 import twitter4j.TwitterException;
 
 public class TwittermainTest {
 	
-	Twittermain t = new Twittermain();
+	TwitterGUI t = new TwitterGUI("iscte");
 
 	@Test
 	public void testTimeline() {
-		try {
-			t.timeline();
-		} catch (TwitterException e) {
-			e.printStackTrace();
-		}
-		assertFalse(t.getList().isEmpty());
+		t.start();
+		t.init();
+		assertFalse(t.getEcra().isEmpty());
 	}
 
 }

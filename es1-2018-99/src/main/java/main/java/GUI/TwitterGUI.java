@@ -48,6 +48,10 @@ public class TwitterGUI {
 	private String t4;
 	private String name;
 	
+	public DefaultListModel<Tweet> getEcra(){
+		return ecra;
+	}
+	
 	public void start() {
 		try {
 			readTokens(name);

@@ -52,6 +52,10 @@ public class EmailGUI {
 	public EmailGUI(String user) {
 		this.user=user;
 	}
+	
+	public DefaultListModel<Email> getPost(){
+		return ecra;
+	}
 
 	public String getXMLuser() throws SAXException, IOException, ParserConfigurationException {
 

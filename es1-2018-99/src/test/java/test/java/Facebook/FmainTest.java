@@ -5,15 +5,18 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import main.java.Facebook.Fmain;
+import main.java.GUI.facebook_GUI;
 
 public class FmainTest {
 	
-	Fmain fm = new Fmain();
+	facebook_GUI fg = new facebook_GUI("789");
+	
 
 	@Test
 	public void testFeed() {
-		fm.feed();
-		assertEquals(fm.getC(), 215);
+		fg.start();
+		fg.init();
+		assertFalse(fg.getPost().isEmpty());
 	}
 
 }

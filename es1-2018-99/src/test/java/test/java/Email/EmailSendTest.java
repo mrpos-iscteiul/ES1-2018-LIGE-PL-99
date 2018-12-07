@@ -8,7 +8,7 @@ import main.java.Email.EmailSend;
 
 public class EmailSendTest {
 	
-	EmailSend es= new EmailSend();
+	EmailSend es= new EmailSend("dmbjuvandes@gmail.com", "ola", "adues", "diogombj@gmail.com", "sednavuj");
 	
 	@Test
 	public void testSend() {
