@@ -195,6 +195,7 @@ public class interface_si2 extends JFrame {
 				
 				apl=new interface_apl(getUser());
 				apl.init();
+				frame.setVisible(false);
 			}
 		});
 		
