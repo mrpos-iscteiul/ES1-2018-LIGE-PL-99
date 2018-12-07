@@ -26,7 +26,7 @@ import main.java.GUI.interface_apl;
 public class Fmain {
 
 	int countP=0;
-	private ArrayList<Post> posts = new ArrayList<Post>();
+	private ArrayList<String> posts = new ArrayList<String>();
 	private String user;
 
 	public Fmain(String user) {
@@ -48,12 +48,14 @@ public class Fmain {
 		String accessToken=readfbtoken();
 		FacebookClient fbclient = new DefaultFacebookClient(accessToken);
 		User me = fbclient.fetchObject("me", User.class);
+		System.out.println(accessToken);
 
 		Connection<Post> result = fbclient.fetchConnection("me/feed", Post.class);
 
 		for(List<Post> page : result) {
 			for(Post aPost : page){
-				posts.add(aPost);
+				String post = aPost.getMessage();
+				posts.add(post);
 				System.out.println(aPost.getMessage());
 				System.out.println("Id: "+"fb.com/"+aPost.getId());
 				countP++;

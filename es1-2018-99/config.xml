@@ -18,4 +18,6 @@
 <Service Account="456" Mailpassword="" Password="123" Protocol="smtp" mail=""/>
 <Service Account="user" Mailpassword="" Password="pass" Protocol="smtp" mail=""/>
 <Service Account="dmbjs" Mailpassword="sednavuj" Password="diogo" Protocol="smtp" fbtoken="" mail="diogombj@gmail.com" t1=""/>
+<Service Account="iscte" Mailpassword="" Password="iscte" Protocol="smtp" fbtoken="" mail="" t1="S3zvRA8J9QMlFFQneABHyNU68" t2="xYcjr59LMFWiWBTYPX4ZzZah8JAtAyaEPhZzeqrd4u1lZKcm9I" t3="561479088-UJZeNdtVGUbyyFCoNaaPqFkyOrYtPngufARZWeeb" t4="uSKkUOPxJSf9HyT76oLGEoY14g8mbDlp0tVSxCahBMRmz"/>
+<Service Account="789" Mailpassword="" Password="789" Protocol="smtp" fbtoken="EAACnyXeKEEkBAEBd0pqQAT19f7emVmZCWh8ejRce7YUcY57pFOFux3FTZB93qJgHz9wsA5WW6X4ZCQsm0ivq36QQIAYaoChBsFi7z6ZBANr2fVZC75QZCwEL4WWPWskUQoZBcUpYRSRZCCuzqWmprZB9XaZBYOW4ZAPgIE8S6H88EygRwZDZD" mail="" t1="" t2="" t3="" t4=""/>
 </XML>

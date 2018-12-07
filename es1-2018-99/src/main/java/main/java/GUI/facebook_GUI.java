@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -37,6 +38,7 @@ import javax.swing.JList;
 
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 import javax.swing.JTextArea;
 
 public class facebook_GUI extends JFrame {
@@ -46,8 +48,9 @@ public class facebook_GUI extends JFrame {
 	private JTextField textField;
 	private String fbtoken;
 	private String user;
-	DefaultListModel<Post> ecra = new DefaultListModel();
-	JList<Post> feed = new JList<Post>(ecra);
+	DefaultListModel<String> ecra = new DefaultListModel();
+	JList<String> feed = new JList<String>(ecra);
+	JScrollPane scroll = new JScrollPane(feed);	
 	private Fmain f;
 	
 	
@@ -63,9 +66,8 @@ public class facebook_GUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					facebook_GUI frame = new facebook_GUI(user);
 					addFrame();
-					frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -77,16 +79,13 @@ public class facebook_GUI extends JFrame {
 		try {
 			f.feed();
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		for (Post s : (ArrayList<Post>) f.getP()) {
+		for (String s : (ArrayList<String>) f.getP()) {	
 			ecra.addElement(s);
 		}
 		feed.setModel(ecra);
@@ -95,44 +94,52 @@ public class facebook_GUI extends JFrame {
 	 * Create the frame.
 	 */
 	public void addFrame() {
-		frame = new JFrame();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame = new JFrame("Facebook");
+		
 		setBounds(100, 100, 572, 379);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JButton btnNewButton = new JButton("Facebook");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		contentPane.add(btnNewButton, BorderLayout.NORTH);
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
 		
-		textField = new JTextField();
-		textField.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setBounds(228, 14, 116, 22);
-		panel.add(textField);
-		textField.setColumns(10);
 		
-		JLabel lblUser = new JLabel("User");
-		lblUser.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUser.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblUser.setBounds(172, 16, 56, 16);
-		panel.add(lblUser);
-		//////
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(0, 49, 544, 248);
-		panel.add(textArea);
+//		JPanel panel = new JPanel();
+//		contentPane.add(panel, BorderLayout.CENTER);
+//		panel.setLayout(null);
+//		
+//		textField = new JTextField();
+//		textField.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//			}
+//		});
+//		textField.setHorizontalAlignment(SwingConstants.CENTER);
+//		textField.setBounds(228, 14, 116, 22);
+//		panel.add(textField);
+//		textField.setColumns(10);
+		contentPane.add(scroll);
+		
+//		JLabel lblUser = new JLabel("User");
+//		lblUser.setHorizontalAlignment(SwingConstants.CENTER);
+//		lblUser.setFont(new Font("Tahoma", Font.PLAIN, 15));
+//		lblUser.setBounds(172, 16, 56, 16);
+//		panel.add(lblUser);
+//		//////
+//		JTextArea textArea = new JTextArea();
+//		textArea.setBounds(0, 49, 544, 248);
+//		panel.add(textArea);
+		frame.add(contentPane);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frame.setSize(800,800);
+		frame.setLocation(400,100);	
+		frame.setVisible(true);
+	}
+	
+	public static void main(String [] args) {
+		facebook_GUI fg = new facebook_GUI("789");
+		fg.start();
+		fg.init();
 	}
 	
 	
