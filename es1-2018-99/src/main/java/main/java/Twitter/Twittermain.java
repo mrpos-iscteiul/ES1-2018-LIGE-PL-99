@@ -77,13 +77,5 @@ public class Twittermain {
 	public void like (long id) throws TwitterException {
 		twitter.createFavorite(id);
 	}
-	//
-	//	public static void main(String[] args) throws TwitterException {
-	//		Twittermain t = new Twittermain();
-	//		t.timeline();
-	//		System.out.println(t.tweets.isEmpty());
-	//	
-	//
-	//	}
-
+	
 }

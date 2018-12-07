@@ -83,10 +83,5 @@ public class SendMailGUI {
 	}
 	
 	
-	public static void main(String[] args) {
-//		SendMailGUI se = new SendMailGUI();
-//		se.init();
-
-	}
 
 }

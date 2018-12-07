@@ -167,12 +167,7 @@ public class TwitterGUI {
 		this.name=name;
 	}
 
-//	public static void main(String[] args) {
-//		TwitterGUI tg = new TwitterGUI(name,pass);	
-//		tg.start();
-//		tg.init();
 
-//	}
 	
 	public void readTokens(String name) {
 		try {
