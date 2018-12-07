@@ -66,7 +66,7 @@ public class interface_apl extends JFrame {
 					addFrameC();
 				} catch (Exception e) {
 					e.printStackTrace();
-					//////////////
+					
 				}
 			}
 		});
@@ -118,7 +118,7 @@ public class interface_apl extends JFrame {
 					try {
 						eg.start();
 					} catch (MessagingException e1) {
-					//S
+					
 						e1.printStackTrace();
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
@@ -156,21 +156,7 @@ public class interface_apl extends JFrame {
 		frame.setLocation(400,100);	
 		frame.setVisible(true);
 
-		//		JLabel lblNewLabel = new JLabel("New label");
-		//		lblNewLabel.setBounds(12, 13, 446, 40);
-		//		panel.add(lblNewLabel);
-		//		
-		//		JLabel label = new JLabel("New label");
-		//		label.setBounds(12, 68, 446, 40);
-		//		panel.add(label);
-		//		
-		//		JLabel label_1 = new JLabel("New label");
-		//		label_1.setBounds(12, 127, 446, 40);
-		//		panel.add(label_1);
-		//		
-		//		JLabel label_2 = new JLabel("New label");
-		//		label_2.setBounds(12, 187, 446, 40);
-		//		panel.add(label_2);
+		
 	}
 
 

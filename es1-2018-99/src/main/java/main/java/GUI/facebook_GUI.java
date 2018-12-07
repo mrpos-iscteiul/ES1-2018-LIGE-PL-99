@@ -107,32 +107,10 @@ public class facebook_GUI extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		
-		
-		
-//		JPanel panel = new JPanel();
-//		contentPane.add(panel, BorderLayout.CENTER);
-//		panel.setLayout(null);
-//		
-//		textField = new JTextField();
-//		textField.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//			}
-//		});
-//		textField.setHorizontalAlignment(SwingConstants.CENTER);
-//		textField.setBounds(228, 14, 116, 22);
-//		panel.add(textField);
-//		textField.setColumns(10);
+
 		contentPane.add(scroll);
 		
-//		JLabel lblUser = new JLabel("User");
-//		lblUser.setHorizontalAlignment(SwingConstants.CENTER);
-//		lblUser.setFont(new Font("Tahoma", Font.PLAIN, 15));
-//		lblUser.setBounds(172, 16, 56, 16);
-//		panel.add(lblUser);
-//		//////
-//		JTextArea textArea = new JTextArea();
-//		textArea.setBounds(0, 49, 544, 248);
-//		panel.add(textArea);
+
 		frame.add(contentPane);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setSize(800,800);
