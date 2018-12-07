@@ -141,25 +141,10 @@ public class interface_apl extends JFrame {
 		chckbxFacebook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chckbxFacebook.isSelected()) {
-					Fmain f = new Fmain(user);
-					try {
-						f.feed();
-					} catch (SAXException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (ParserConfigurationException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					for(Post p : (ArrayList<Post>) f.getP()) {
-						String s = "facebook ----> Post: " + p.getMessage()+"ID:  "+p.getId();
-						ecra.addElement(s);
-					}
+					facebook_GUI fg = new facebook_GUI(user);
+					fg.start();
+					fg.init();
 				}
-				feed.setModel(ecra);
 			}
 		});
 		

@@ -187,10 +187,10 @@ public class TwitterGUI {
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) nNode;
 					if(eElement.getAttribute("Account").equals(name)) {
-						t1 = eElement.getAttribute(t1);
-						t2 = eElement.getAttribute(t2);
-						t3 = eElement.getAttribute(t3);
-						t4 = eElement.getAttribute(t4);
+						t1 = eElement.getAttribute("t1");
+						t2 = eElement.getAttribute("t2");
+						t3 = eElement.getAttribute("t3");
+						t4 = eElement.getAttribute("t4");
 					}
 
 
